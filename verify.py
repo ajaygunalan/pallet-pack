@@ -18,6 +18,7 @@ from __future__ import annotations
 import json
 import math
 import sys
+from collections import Counter
 from fractions import Fraction
 
 # Thresholds: same VALUES as solver.py (thresholds shared, implementation
@@ -79,7 +80,7 @@ def load_boxes(plan, case):
             if row[c] != int(row[c]):
                 raise Violation(1, row["id"], f"{c}={row[c]} is not an integer mm")
         boxes.append({
-            "id": row["id"], "seq": row["sequence"],
+            "id": row["id"],
             "x": int(row["x"]), "y": int(row["y"]), "z": int(row["z"]),
             "lx": lx, "ly": ly, "h": h, "mass": mass,
             "sits_on": row.get("sits_on"),
@@ -260,7 +261,7 @@ def check_completeness(plan, boxes, expected):
     leftovers = list(plan.get("leftovers", []))
     seen = placed + leftovers
     if len(seen) != len(set(seen)):
-        dup = sorted({i for i in seen if seen.count(i) > 1})[0]
+        dup = min(i for i, c in Counter(seen).items() if c > 1)
         raise Violation(4, dup, "appears more than once")
     if set(seen) != expected:
         missing = sorted(expected - set(seen)) + sorted(set(seen) - expected)

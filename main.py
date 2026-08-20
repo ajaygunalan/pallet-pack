@@ -18,7 +18,7 @@ import time
 from pathlib import Path
 
 import viewer
-from solver import PATTERNS, TIME_BUDGET, load_problem, pack
+from solver import PATTERN_CHOICES, TIME_BUDGET, load_problem, pack, patterns_for
 
 HERE = Path(__file__).parent
 
@@ -29,13 +29,13 @@ def main():
     ap.add_argument("-o", "--outdir", default=".")
     ap.add_argument("--time-budget", type=float, default=TIME_BUDGET,
                     help="search time budget in seconds")
-    ap.add_argument("--pattern", choices=("auto", "tiled", "platform"),
+    ap.add_argument("--pattern", choices=PATTERN_CHOICES,
                     default="auto",
                     help="stacking pattern: tiled = classic tight tiling, "
                          "platform = spread the tallest boxes to carry the "
                          "upper pallet, auto = try both, the score picks")
     args = ap.parse_args()
-    patterns = PATTERNS if args.pattern == "auto" else (args.pattern,)
+    patterns = patterns_for(args.pattern)
     outdir = Path(args.outdir)
     outdir.mkdir(parents=True, exist_ok=True)
     plan_path = outdir / f"plan_{args.pattern}.json"

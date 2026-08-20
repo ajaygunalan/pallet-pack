@@ -77,7 +77,6 @@ class SKU:
 @dataclass(frozen=True)
 class Problem:
     L: int; W: int          # pallet deck, mm
-    deck_h: int
     max_h: int | None       # cap on load height above the deck (z + h)
     skus: tuple[SKU, ...]
     case: dict              # snapped echo of the input, for the plan file
@@ -95,7 +94,12 @@ class Placement:
 
     @property
     def id(self):
-        return f"{self.code}-{self.instance}"
+        return box_id(self.code, self.instance)
+
+
+def box_id(code: str, instance: int) -> str:
+    """The one place the '<SKU>-<n>' box id format is written."""
+    return f"{code}-{instance}"
 
 
 def load_problem(path_or_dict) -> Problem:
@@ -120,8 +124,8 @@ def load_problem(path_or_dict) -> Problem:
                   "weight": case["skus"][s.idx].get("weight")} for s in skus],
     }
     sp = snapped["pallet"]
-    return Problem(sp["length"], sp["width"], sp["deck_height"],
-                   sp["max_stack_height"], tuple(skus), snapped)
+    return Problem(sp["length"], sp["width"], sp["max_stack_height"],
+                   tuple(skus), snapped)
 
 
 def footprint(sku: SKU, rotated: bool) -> tuple[int, int]:
@@ -245,12 +249,14 @@ def balance_ok(placements, new: Placement) -> bool:
     below. Only boxes below the new box can be affected, so only that chain
     is rechecked."""
     stack = list(placements) + [new]
+    index = {id(p): j for j, p in enumerate(stack)}
     below = {i: [] for i in range(len(stack))}   # i rests on below[i]
     for i, b in enumerate(stack):
         if b.z > 0:
-            sup = _supporters(stack[:i] + stack[i + 1:], b.x, b.y, b.lx, b.ly, b.z)
-            ids = {id(p) for p, _ in sup}
-            below[i] = [j for j, q in enumerate(stack) if id(q) in ids]
+            # a box never qualifies as its own supporter: its top is h above
+            # its own base, so the z filter in _supporters excludes it
+            sup = _supporters(stack, b.x, b.y, b.lx, b.ly, b.z)
+            below[i] = [index[id(p)] for p, _ in sup]
             if not below[i]:
                 return False                     # nothing qualifies as support
 
@@ -349,7 +355,7 @@ class State:
     """One beam copy = one alternative world: heightmap + placements +
     remaining counts. Copy is a memcpy; placements are frozen and shared."""
     __slots__ = ("problem", "hm", "placements", "remaining", "placed_per_sku",
-                 "hmax", "volume", "msum", "mx2", "my2")
+                 "hmax", "volume", "used")
 
     def __init__(self, problem: Problem):
         self.problem = problem
@@ -359,6 +365,7 @@ class State:
         self.placed_per_sku = [0] * len(problem.skus)
         self.hmax = 0
         self.volume = 0
+        self.used = 0                   # deck cells covered by at least one box
 
     def copy(self) -> "State":
         c = State.__new__(State)
@@ -367,7 +374,7 @@ class State:
         c.placements = list(self.placements)
         c.remaining = list(self.remaining)
         c.placed_per_sku = list(self.placed_per_sku)
-        c.hmax, c.volume = self.hmax, self.volume
+        c.hmax, c.volume, c.used = self.hmax, self.volume, self.used
         return c
 
     def key(self) -> bytes:
@@ -386,10 +393,20 @@ class State:
                       lx, ly, sku.h, sku.mass, sits_on)
         self.placements.append(p)
         self.remaining[sku.idx] -= 1
+        self.used += int((self.hm[x:x + lx, y:y + ly] == 0).sum())
         self.hm[x:x + lx, y:y + ly] = z + sku.h
         self.hmax = max(self.hmax, z + sku.h)
         self.volume += sku.l * sku.w * sku.h
         return p
+
+    def _top_stats(self):
+        """The LEVEL TOP numbers, computed in ONE place: (top contact area,
+        2x hull spread, passes-both-thresholds)."""
+        area, spread2 = top_support(self.placements, self.hmax)
+        deck = self.problem.L * self.problem.W
+        valid = (area >= STACK_AREA_FRAC * deck
+                 and spread2 >= STACK_SPREAD_FRAC * 2 * deck)
+        return area, spread2, valid
 
     def snapshot_score(self):
         """(valid, volume, top area): valid iff the top passes LEVEL TOP —
@@ -399,21 +416,16 @@ class State:
         with the fuller, flatter top wins."""
         if not self.placements:
             return (0, 0, 0)
-        area, spread2 = top_support(self.placements, self.hmax)
-        deck = self.problem.L * self.problem.W
-        valid = int(area >= STACK_AREA_FRAC * deck
-                    and spread2 >= STACK_SPREAD_FRAC * 2 * deck)
-        return (valid, self.volume, area)
+        area, _, valid = self._top_stats()
+        return (int(valid), self.volume, area)
 
     def metrics(self):
-        area, spread2 = top_support(self.placements, self.hmax)
-        used = int((self.hm > 0).sum())
+        area, spread2, valid = self._top_stats()
         deck = self.problem.L * self.problem.W
-        return {"stackable": bool(area >= STACK_AREA_FRAC * deck
-                                  and spread2 >= STACK_SPREAD_FRAC * 2 * deck),
+        return {"stackable": bool(valid),
                 "top_coverage_pct": round(area / deck * 100, 1),
                 "top_spread_pct": round(spread2 / (2 * deck) * 100, 1),
-                "footprint_used_pct": round(used / deck * 100, 1),
+                "footprint_used_pct": round(self.used / deck * 100, 1),
                 "stack_height_mm": self.hmax}
 
 
@@ -443,6 +455,23 @@ def _fits_cap(problem, z, h):
     return problem.max_h is None or z + h <= problem.max_h
 
 
+def fitting_spots(state: "State", sku: SKU):
+    """Every candidate spot for `sku` that fits the deck and the height
+    cap, in deterministic order: unrotated first, then candidate_spots()
+    order. Yields (rotated, lx, ly, x, y, z). This is the ONE place the
+    rotation loop, the deck-fit test, and the cap test live — the two
+    stability checks are applied later, by the caller. A square box is
+    tried unrotated only: its rotated twin lands identically."""
+    rots = (False,) if sku.l == sku.w else (False, True)
+    for rotated in rots:
+        lx, ly = footprint(sku, rotated)
+        if lx > state.problem.L or ly > state.problem.W:
+            continue
+        for x, y, z in candidate_spots(state, lx, ly):
+            if _fits_cap(state.problem, z, sku.h):
+                yield rotated, lx, ly, x, y, z
+
+
 def passes_checks(state: "State", sku: SKU, rotated: bool, x, y, z) -> bool:
     """Both stability checks: SUPPORT, then BALANCE — filters, never
     penalties. The height cap is applied at candidate generation instead."""
@@ -460,23 +489,16 @@ def place_best(state: State, sku: SKU, top_cap=None) -> bool:
     lazily — the checks usually run only a handful of times per step.
     `top_cap` (platform pattern) refuses spots that would poke above it."""
     cands = []
-    for rotated in (False, True):
-        lx, ly = footprint(sku, rotated)
-        if lx > state.problem.L or ly > state.problem.W:
+    for rotated, lx, ly, x, y, z in fitting_spots(state, sku):
+        if top_cap is not None and z + sku.h > top_cap:
             continue
-        for x, y, z in candidate_spots(state, lx, ly):
-            if not _fits_cap(state.problem, z, sku.h):
-                continue
-            if top_cap is not None and z + sku.h > top_cap:
-                continue
-            # preference order: finish the current level (lowest new
-            # top), land low (COM lowest), then corner-anchored tight tiling.
-            # §4.1d's "COM most centered" is deliberately not a spot key —
-            # it conflicts with §4.4's corner anchoring (it scatters boxes
-            # across the deck), and centering is already enforced where it
-            # matters by the BALANCE check.
-            new_top = max(state.hmax, z + sku.h)
-            cands.append((new_top, z, x, y, rotated))
+        # preference order: finish the current level (lowest new
+        # top), land low (COM lowest), then corner-anchored tight tiling.
+        # "COM most centered" is deliberately not a spot key — it conflicts
+        # with corner anchoring (it scatters boxes across the deck), and
+        # centering is already enforced where it matters by the BALANCE check.
+        new_top = max(state.hmax, z + sku.h)
+        cands.append((new_top, z, x, y, rotated))
     cands.sort()
     for _, z, x, y, rotated in cands:
         if passes_checks(state, sku, rotated, x, y, z):
@@ -491,19 +513,15 @@ def _place_spread(state: State, sku: SKU, top_h: int, platform) -> bool:
     first, then maximum distance from the other platform boxes. This is what
     puts support under the upper pallet's edges and corners."""
     cands = []
-    for rotated in (False, True):
-        lx, ly = footprint(sku, rotated)
-        if lx > state.problem.L or ly > state.problem.W:
+    for rotated, lx, ly, x, y, z in fitting_spots(state, sku):
+        if z + sku.h != top_h:
             continue
-        for x, y, z in candidate_spots(state, lx, ly):
-            if z + sku.h != top_h or not _fits_cap(state.problem, z, sku.h):
-                continue
-            perim = int(x == 0 or y == 0 or x + lx == state.problem.L
-                        or y + ly == state.problem.W)
-            mind = min(((2 * x + lx - 2 * q.x - q.lx) ** 2
-                        + (2 * y + ly - 2 * q.y - q.ly) ** 2
-                        for q in platform), default=0)
-            cands.append((-perim, -mind, x, y, rotated, z))
+        perim = int(x == 0 or y == 0 or x + lx == state.problem.L
+                    or y + ly == state.problem.W)
+        mind = min(((2 * x + lx - 2 * q.x - q.lx) ** 2
+                    + (2 * y + ly - 2 * q.y - q.ly) ** 2
+                    for q in platform), default=0)
+        cands.append((-perim, -mind, x, y, rotated, z))
     cands.sort()
     for _, _, x, y, rotated, z in cands:
         if passes_checks(state, sku, rotated, x, y, z):
@@ -512,10 +530,9 @@ def _place_spread(state: State, sku: SKU, top_h: int, platform) -> bool:
     return False
 
 
-def _greedy_fill(state: State, track, top_cap=None):
-    """The §4.1 inner loop: heaviest first, set-aside boxes retried every
-    pass after the stack changes (step 2e), until a pass places nothing."""
-    order = _sku_order(state.problem)
+def _greedy_fill(state: State, track, order, top_cap=None):
+    """The greedy inner loop: heaviest first, set-aside boxes retried every
+    pass after the stack changes, until a pass places nothing."""
     progress = True
     while progress:
         progress = False
@@ -546,18 +563,19 @@ def rollout(state: State, pattern: str = "tiled"):
         if score > best[0]:
             best[0], best[1], best[2] = score, len(state.placements), state.metrics()
 
+    order = _sku_order(state.problem)
     if pattern == "platform":
         top_h = max([state.hmax] + [s.h for s in state.problem.skus
                                     if state.remaining[s.idx] > 0])
         platform = [p for p in state.placements if p.z + p.h == top_h]
-        for si in _sku_order(state.problem):        # phase A: build the platform
+        for si in order:                            # phase A: build the platform
             while state.remaining[si] > 0:
                 if not _place_spread(state, state.problem.skus[si], top_h, platform):
                     break
                 track()
-        _greedy_fill(state, track, top_cap=top_h)   # phase B: fill below it
+        _greedy_fill(state, track, order, top_cap=top_h)  # phase B: fill below
     else:
-        _greedy_fill(state, track)
+        _greedy_fill(state, track, order)
     return best[0], best[1], best[2]
 
 
@@ -590,6 +608,12 @@ class _Bank:
 
 
 PATTERNS = ("tiled", "platform")        # rollout patterns; order breaks ties
+PATTERN_CHOICES = ("auto",) + PATTERNS  # the --pattern CLI vocabulary
+
+
+def patterns_for(choice: str) -> tuple[str, ...]:
+    """A --pattern CLI value -> the patterns tuple pack() should run."""
+    return PATTERNS if choice == "auto" else (choice,)
 
 
 def solve(problem: Problem, width: int, deadline=None, memo=None, bank=None,
@@ -601,8 +625,7 @@ def solve(problem: Problem, width: int, deadline=None, memo=None, bank=None,
     def expired():
         return deadline is not None and time.monotonic() > deadline
 
-    def evaluate(child_state):
-        k = child_state.key()
+    def evaluate(child_state, k):
         hit = memo.get(k)
         if hit is None:
             for pattern in patterns:                 # first wins score ties
@@ -614,10 +637,10 @@ def solve(problem: Problem, width: int, deadline=None, memo=None, bank=None,
                     hit = cand
             memo[k] = hit
         bank.offer(*hit)
-        return k, hit[0]
+        return hit[0]
 
     root = State(problem)
-    evaluate(root)                      # pure-greedy baseline, always banked
+    evaluate(root, root.key())          # pure-greedy baseline, always banked
     beam = [root]
     while beam and not expired():
         seen = set()
@@ -627,28 +650,22 @@ def solve(problem: Problem, width: int, deadline=None, memo=None, bank=None,
             for si, sku in enumerate(problem.skus):
                 if copy.remaining[si] == 0:
                     continue
-                for rotated in (False, True):
-                    lx, ly = footprint(sku, rotated)
-                    if lx > problem.L or ly > problem.W:
+                for rotated, lx, ly, x, y, z in fitting_spots(copy, sku):
+                    if expired():
+                        return bank
+                    if not passes_checks(copy, sku, rotated, x, y, z):
                         continue
-                    for x, y, z in candidate_spots(copy, lx, ly):
-                        if expired():
-                            return bank
-                        if not _fits_cap(problem, z, sku.h):
-                            continue
-                        if not passes_checks(copy, sku, rotated, x, y, z):
-                            continue
-                        child = copy.copy()
-                        child.place(sku, rotated, x, y, z)
-                        k = child.key()
-                        if k in seen:   # twin deletion
-                            continue
-                        seen.add(k)
-                        _, score = evaluate(child)
-                        n_children += 1
-                        kept.append((score, -n_children, child))
-                        kept.sort(key=lambda t: (t[0], t[1]), reverse=True)
-                        del kept[width:]
+                    child = copy.copy()
+                    child.place(sku, rotated, x, y, z)
+                    k = child.key()
+                    if k in seen:       # twin deletion
+                        continue
+                    seen.add(k)
+                    score = evaluate(child, k)
+                    n_children += 1
+                    kept.append((score, -n_children, child))
+                    kept.sort(key=lambda t: (t[0], t[1]), reverse=True)
+                    del kept[width:]
         beam = [st for _, _, st in kept]
     return bank
 
@@ -685,7 +702,7 @@ def build_plan(problem: Problem, bank: _Bank, widths_run) -> dict:
         rows.append({"sequence": p.seq, "id": p.id, "sku": p.code,
                      "x": p.x, "y": p.y, "z": p.z, "rotated": p.rotated,
                      "sits_on": list(p.sits_on)})
-    leftovers = [f"{s.code}-{i}" for s in problem.skus
+    leftovers = [box_id(s.code, i) for s in problem.skus
                  for i in range(placed_per_sku[s.code] + 1, s.count + 1)]
     total = sum(s.count for s in problem.skus)
     return {
@@ -705,10 +722,10 @@ def main():
     ap.add_argument("-o", "--out", default="plan.json")
     ap.add_argument("--time-budget", type=float, default=TIME_BUDGET,
                     help="search time budget in seconds")
-    ap.add_argument("--pattern", choices=("auto", "tiled", "platform"),
+    ap.add_argument("--pattern", choices=PATTERN_CHOICES,
                     default="auto", help="restrict the stacking pattern")
     args = ap.parse_args()
-    patterns = PATTERNS if args.pattern == "auto" else (args.pattern,)
+    patterns = patterns_for(args.pattern)
     problem = load_problem(args.case)
     t0 = time.monotonic()
     plan = pack(problem, args.time_budget, patterns=patterns)

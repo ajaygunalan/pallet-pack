@@ -104,24 +104,20 @@ def test_verifier_sits_on_crosscheck():
     assert e.value.rule == 2
 
 
-def test_verifier_cli():
-    import tempfile
-    with tempfile.TemporaryDirectory() as d:
-        plan_p, case_p = Path(d) / "plan.json", Path(d) / "case.json"
-        plan_p.write_text(json.dumps(
-            make_plan([("X-1", 0, 0, 0, True), ("X-2", 200, 0, 0, True)])))
-        case_p.write_text(json.dumps(TWO_BOX_CASE))
-        r = subprocess.run([sys.executable, str(HERE / "verify.py"),
-                            str(plan_p), str(case_p)],
-                           capture_output=True, text=True)
-        assert r.returncode == 0 and r.stdout.startswith("PASS")
+def test_verifier_cli(tmp_path):
+    plan_p, case_p = tmp_path / "plan.json", tmp_path / "case.json"
+    plan_p.write_text(json.dumps(
+        make_plan([("X-1", 0, 0, 0, True), ("X-2", 200, 0, 0, True)])))
+    case_p.write_text(json.dumps(TWO_BOX_CASE))
+    r = subprocess.run([sys.executable, str(HERE / "verify.py"),
+                        str(plan_p), str(case_p)],
+                       capture_output=True, text=True)
+    assert r.returncode == 0 and r.stdout.startswith("PASS")
 
 
 # ------------------------------------------- checkpoint 2: heightmap + checks
 
-import numpy as np  # noqa: E402  (solver-side tests only; verify stays clean)
-
-import solver
+import solver  # noqa: E402  (solver-side tests below; verify.py stays clean)
 
 
 def state_with(pallet_l, pallet_w, skus, places):
@@ -140,9 +136,9 @@ def state_with(pallet_l, pallet_w, skus, places):
 def test_landing_rule():
     # Landing rule: z is derived from the tallest cell under the footprint —
     # floating is impossible by construction.
-    st, sk = state_with(1200, 800, [("D", (370, 298, 220), 1),
-                                    ("C", (388, 280, 192), 1)],
-                        [("D", True, 0, 0), ("C", True, 370, 0)])
+    st, _ = state_with(1200, 800, [("D", (370, 298, 220), 1),
+                                   ("C", (388, 280, 192), 1)],
+                       [("D", True, 0, 0), ("C", True, 370, 0)])
     assert st.hm[0, 0] == 220 and st.hm[400, 0] == 192
     # a box halfway on D and C lands at 220 (the tallest cell), never 192:
     # its z is the max under the footprint, exactly the see-saw case
@@ -156,10 +152,10 @@ def test_landing_rule():
 def test_seesaw_rejected():
     # SUPPORT (a): half on D (220), half over C (192) -> 28 mm air
     # gap under one half; ~50% supported area is below the 70% bar.
-    st, sk = state_with(1200, 800, [("D", (370, 298, 220), 1),
-                                    ("C", (388, 280, 192), 1),
-                                    ("N", (206, 198, 278), 1)],
-                        [("D", True, 0, 0), ("C", True, 370, 0)])
+    st, _ = state_with(1200, 800, [("D", (370, 298, 220), 1),
+                                   ("C", (388, 280, 192), 1),
+                                   ("N", (206, 198, 278), 1)],
+                       [("D", True, 0, 0), ("C", True, 370, 0)])
     assert not solver.support_ok(st.hm, 267, 0, 206, 198, 220)  # straddling
     assert solver.support_ok(st.hm, 100, 0, 206, 198, 220)      # fully on D
 

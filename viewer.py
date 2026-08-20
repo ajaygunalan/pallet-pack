@@ -35,10 +35,14 @@ CAMERAS = {
 VISUAL_GAP = 1.0
 
 
-def box_mesh(x, y, z, dx, dy, dz, color, name, hover, group, showlegend):
+def _inset(x, y, z, dx, dy, dz):
+    """Shrink a box by the visual gap on every side (display only)."""
     g = min(VISUAL_GAP, dx / 4, dy / 4, dz / 4)
-    x, y, z = x + g, y + g, z + g
-    dx, dy, dz = dx - 2 * g, dy - 2 * g, dz - 2 * g
+    return x + g, y + g, z + g, dx - 2 * g, dy - 2 * g, dz - 2 * g
+
+
+def box_mesh(x, y, z, dx, dy, dz, color, name, hover, group, showlegend):
+    x, y, z, dx, dy, dz = _inset(x, y, z, dx, dy, dz)
     xs = [x, x + dx, x + dx, x, x, x + dx, x + dx, x]
     ys = [y, y, y + dy, y + dy, y, y, y + dy, y + dy]
     zs = [z] * 4 + [z + dz] * 4
@@ -53,9 +57,7 @@ def box_mesh(x, y, z, dx, dy, dz, color, name, hover, group, showlegend):
 
 
 def box_wire(x, y, z, dx, dy, dz, group):
-    g = min(VISUAL_GAP, dx / 4, dy / 4, dz / 4)
-    x, y, z = x + g, y + g, z + g
-    dx, dy, dz = dx - 2 * g, dy - 2 * g, dz - 2 * g
+    x, y, z, dx, dy, dz = _inset(x, y, z, dx, dy, dz)
     c = [(x, y, z), (x + dx, y, z), (x + dx, y + dy, z), (x, y + dy, z),
          (x, y, z + dz), (x + dx, y, z + dz), (x + dx, y + dy, z + dz),
          (x, y + dy, z + dz)]
@@ -69,17 +71,17 @@ def box_wire(x, y, z, dx, dy, dz, group):
 
 def params_text(plan):
     v = plan["verdict"]
-    run = []
+    lines = []
+    if "case_name" in plan:
+        lines.append(f"<b>{plan['case_name']}</b>")
     if "pattern_requested" in v:
-        run.append(f"pattern requested: {v['pattern_requested']}"
-                   + (f" (won: {v['pattern']})" if v.get("pattern") else ""))
+        lines.append(f"pattern requested: {v['pattern_requested']}"
+                     + (f" (won: {v['pattern']})" if v.get("pattern") else ""))
     if "time_budget_s" in v:
-        run.append(f"time budget {v['time_budget_s']:g} s"
-                   + (f", used {v['solve_seconds']:g} s"
-                      if "solve_seconds" in v else ""))
-    lines = [
-        *( [f"<b>{plan['case_name']}</b>"] if "case_name" in plan else [] ),
-        *run,
+        lines.append(f"time budget {v['time_budget_s']:g} s"
+                     + (f", used {v['solve_seconds']:g} s"
+                        if "solve_seconds" in v else ""))
+    lines += [
         "",
         "<b>solver parameters</b>",
         f"support area ≥ {float(solver.SUPPORT_FRAC):.0%} of base",
