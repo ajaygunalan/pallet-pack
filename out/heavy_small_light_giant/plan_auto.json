@@ -1,0 +1,128 @@
+{
+ "case": {
+  "pallet": {
+   "length": 800,
+   "width": 600,
+   "deck_height": 145,
+   "max_stack_height": null
+  },
+  "skus": [
+   {
+    "sku": "S",
+    "dims": [
+     200,
+     200,
+     150
+    ],
+    "count": 4,
+    "weight": 25.0
+   },
+   {
+    "sku": "L",
+    "dims": [
+     600,
+     400,
+     300
+    ],
+    "count": 2,
+    "weight": 2.0
+   }
+  ]
+ },
+ "placements": [
+  {
+   "sequence": 1,
+   "id": "L-1",
+   "sku": "L",
+   "x": 0,
+   "y": 0,
+   "z": 0,
+   "rotated": false,
+   "sits_on": [
+    "deck"
+   ]
+  },
+  {
+   "sequence": 2,
+   "id": "L-2",
+   "sku": "L",
+   "x": 400,
+   "y": 0,
+   "z": 0,
+   "rotated": false,
+   "sits_on": [
+    "deck"
+   ]
+  },
+  {
+   "sequence": 3,
+   "id": "S-1",
+   "sku": "S",
+   "x": 0,
+   "y": 0,
+   "z": 300,
+   "rotated": false,
+   "sits_on": [
+    "L-1"
+   ]
+  },
+  {
+   "sequence": 4,
+   "id": "S-2",
+   "sku": "S",
+   "x": 600,
+   "y": 400,
+   "z": 300,
+   "rotated": false,
+   "sits_on": [
+    "L-2"
+   ]
+  },
+  {
+   "sequence": 5,
+   "id": "S-3",
+   "sku": "S",
+   "x": 0,
+   "y": 400,
+   "z": 300,
+   "rotated": false,
+   "sits_on": [
+    "L-1"
+   ]
+  },
+  {
+   "sequence": 6,
+   "id": "S-4",
+   "sku": "S",
+   "x": 400,
+   "y": 0,
+   "z": 300,
+   "rotated": false,
+   "sits_on": [
+    "L-2"
+   ]
+  }
+ ],
+ "leftovers": [],
+ "verdict": {
+  "static_support": "PASS",
+  "stackable": true,
+  "top_coverage_pct": 33.3,
+  "top_spread_pct": 91.7,
+  "footprint_used_pct": 100.0,
+  "stack_height_mm": 450,
+  "pattern": "platform",
+  "placed": 6,
+  "total": 6,
+  "beam_widths_run": [
+   1,
+   2,
+   4,
+   8
+  ],
+  "pattern_requested": "auto",
+  "time_budget_s": 60.0,
+  "solve_seconds": 4.3
+ },
+ "case_name": "heavy_small_light_giant"
+}

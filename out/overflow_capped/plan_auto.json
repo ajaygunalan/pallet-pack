@@ -1,0 +1,199 @@
+{
+ "case": {
+  "pallet": {
+   "length": 800,
+   "width": 600,
+   "deck_height": 145,
+   "max_stack_height": 600
+  },
+  "skus": [
+   {
+    "sku": "B",
+    "dims": [
+     400,
+     300,
+     200
+    ],
+    "count": 20,
+    "weight": null
+   }
+  ]
+ },
+ "placements": [
+  {
+   "sequence": 1,
+   "id": "B-1",
+   "sku": "B",
+   "x": 0,
+   "y": 0,
+   "z": 0,
+   "rotated": true,
+   "sits_on": [
+    "deck"
+   ]
+  },
+  {
+   "sequence": 2,
+   "id": "B-2",
+   "sku": "B",
+   "x": 0,
+   "y": 0,
+   "z": 200,
+   "rotated": true,
+   "sits_on": [
+    "B-1"
+   ]
+  },
+  {
+   "sequence": 3,
+   "id": "B-3",
+   "sku": "B",
+   "x": 0,
+   "y": 0,
+   "z": 400,
+   "rotated": true,
+   "sits_on": [
+    "B-2"
+   ]
+  },
+  {
+   "sequence": 4,
+   "id": "B-4",
+   "sku": "B",
+   "x": 400,
+   "y": 0,
+   "z": 0,
+   "rotated": true,
+   "sits_on": [
+    "deck"
+   ]
+  },
+  {
+   "sequence": 5,
+   "id": "B-5",
+   "sku": "B",
+   "x": 400,
+   "y": 0,
+   "z": 200,
+   "rotated": true,
+   "sits_on": [
+    "B-4"
+   ]
+  },
+  {
+   "sequence": 6,
+   "id": "B-6",
+   "sku": "B",
+   "x": 400,
+   "y": 0,
+   "z": 400,
+   "rotated": true,
+   "sits_on": [
+    "B-5"
+   ]
+  },
+  {
+   "sequence": 7,
+   "id": "B-7",
+   "sku": "B",
+   "x": 0,
+   "y": 300,
+   "z": 0,
+   "rotated": true,
+   "sits_on": [
+    "deck"
+   ]
+  },
+  {
+   "sequence": 8,
+   "id": "B-8",
+   "sku": "B",
+   "x": 400,
+   "y": 300,
+   "z": 0,
+   "rotated": true,
+   "sits_on": [
+    "deck"
+   ]
+  },
+  {
+   "sequence": 9,
+   "id": "B-9",
+   "sku": "B",
+   "x": 0,
+   "y": 300,
+   "z": 200,
+   "rotated": true,
+   "sits_on": [
+    "B-7"
+   ]
+  },
+  {
+   "sequence": 10,
+   "id": "B-10",
+   "sku": "B",
+   "x": 400,
+   "y": 300,
+   "z": 200,
+   "rotated": true,
+   "sits_on": [
+    "B-8"
+   ]
+  },
+  {
+   "sequence": 11,
+   "id": "B-11",
+   "sku": "B",
+   "x": 0,
+   "y": 300,
+   "z": 400,
+   "rotated": true,
+   "sits_on": [
+    "B-9"
+   ]
+  },
+  {
+   "sequence": 12,
+   "id": "B-12",
+   "sku": "B",
+   "x": 400,
+   "y": 300,
+   "z": 400,
+   "rotated": true,
+   "sits_on": [
+    "B-10"
+   ]
+  }
+ ],
+ "leftovers": [
+  "B-13",
+  "B-14",
+  "B-15",
+  "B-16",
+  "B-17",
+  "B-18",
+  "B-19",
+  "B-20"
+ ],
+ "verdict": {
+  "static_support": "PASS",
+  "stackable": true,
+  "top_coverage_pct": 100.0,
+  "top_spread_pct": 100.0,
+  "footprint_used_pct": 100.0,
+  "stack_height_mm": 600,
+  "pattern": "tiled",
+  "placed": 12,
+  "total": 20,
+  "beam_widths_run": [
+   1,
+   2,
+   4,
+   8
+  ],
+  "pattern_requested": "auto",
+  "time_budget_s": 60.0,
+  "solve_seconds": 3.0
+ },
+ "case_name": "overflow_capped"
+}

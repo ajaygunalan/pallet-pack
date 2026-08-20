@@ -1,0 +1,10 @@
+{
+  "pallet": {"length": 1200, "width": 800, "deck_height": 145,
+             "max_stack_height": null},
+  "skus": [
+    {"sku": "A", "dims": [206, 198, 278], "count": 6, "weight": null},
+    {"sku": "B", "dims": [360, 300, 165], "count": 2, "weight": null},
+    {"sku": "C", "dims": [388, 280, 192], "count": 1, "weight": null},
+    {"sku": "D", "dims": [370, 298, 220], "count": 1, "weight": null}
+  ]
+}

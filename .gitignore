@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+.pytest_cache/
+plan_*.json
+plan_*.html
+!out/**/plan_*.json
+!out/acceptance_1/plan_auto.html
+!out/grocery_order/plan_auto.html

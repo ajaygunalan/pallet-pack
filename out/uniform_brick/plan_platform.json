@@ -1,0 +1,190 @@
+{
+ "case": {
+  "pallet": {
+   "length": 600,
+   "width": 400,
+   "deck_height": 145,
+   "max_stack_height": null
+  },
+  "skus": [
+   {
+    "sku": "K",
+    "dims": [
+     300,
+     200,
+     150
+    ],
+    "count": 12,
+    "weight": null
+   }
+  ]
+ },
+ "placements": [
+  {
+   "sequence": 1,
+   "id": "K-1",
+   "sku": "K",
+   "x": 0,
+   "y": 0,
+   "z": 0,
+   "rotated": false,
+   "sits_on": [
+    "deck"
+   ]
+  },
+  {
+   "sequence": 2,
+   "id": "K-2",
+   "sku": "K",
+   "x": 0,
+   "y": 0,
+   "z": 150,
+   "rotated": false,
+   "sits_on": [
+    "K-1"
+   ]
+  },
+  {
+   "sequence": 3,
+   "id": "K-3",
+   "sku": "K",
+   "x": 0,
+   "y": 0,
+   "z": 300,
+   "rotated": false,
+   "sits_on": [
+    "K-2"
+   ]
+  },
+  {
+   "sequence": 4,
+   "id": "K-4",
+   "sku": "K",
+   "x": 0,
+   "y": 0,
+   "z": 450,
+   "rotated": false,
+   "sits_on": [
+    "K-3"
+   ]
+  },
+  {
+   "sequence": 5,
+   "id": "K-5",
+   "sku": "K",
+   "x": 200,
+   "y": 0,
+   "z": 0,
+   "rotated": false,
+   "sits_on": [
+    "deck"
+   ]
+  },
+  {
+   "sequence": 6,
+   "id": "K-6",
+   "sku": "K",
+   "x": 400,
+   "y": 0,
+   "z": 0,
+   "rotated": false,
+   "sits_on": [
+    "deck"
+   ]
+  },
+  {
+   "sequence": 7,
+   "id": "K-7",
+   "sku": "K",
+   "x": 200,
+   "y": 0,
+   "z": 150,
+   "rotated": false,
+   "sits_on": [
+    "K-5"
+   ]
+  },
+  {
+   "sequence": 8,
+   "id": "K-8",
+   "sku": "K",
+   "x": 400,
+   "y": 0,
+   "z": 150,
+   "rotated": false,
+   "sits_on": [
+    "K-6"
+   ]
+  },
+  {
+   "sequence": 9,
+   "id": "K-9",
+   "sku": "K",
+   "x": 200,
+   "y": 0,
+   "z": 300,
+   "rotated": false,
+   "sits_on": [
+    "K-7"
+   ]
+  },
+  {
+   "sequence": 10,
+   "id": "K-10",
+   "sku": "K",
+   "x": 400,
+   "y": 0,
+   "z": 300,
+   "rotated": false,
+   "sits_on": [
+    "K-8"
+   ]
+  },
+  {
+   "sequence": 11,
+   "id": "K-11",
+   "sku": "K",
+   "x": 200,
+   "y": 0,
+   "z": 450,
+   "rotated": false,
+   "sits_on": [
+    "K-9"
+   ]
+  },
+  {
+   "sequence": 12,
+   "id": "K-12",
+   "sku": "K",
+   "x": 400,
+   "y": 0,
+   "z": 450,
+   "rotated": false,
+   "sits_on": [
+    "K-10"
+   ]
+  }
+ ],
+ "leftovers": [],
+ "verdict": {
+  "static_support": "PASS",
+  "stackable": true,
+  "top_coverage_pct": 75.0,
+  "top_spread_pct": 75.0,
+  "footprint_used_pct": 75.0,
+  "stack_height_mm": 600,
+  "pattern": "platform",
+  "placed": 12,
+  "total": 12,
+  "beam_widths_run": [
+   1,
+   2,
+   4,
+   8
+  ],
+  "pattern_requested": "platform",
+  "time_budget_s": 60.0,
+  "solve_seconds": 2.1
+ },
+ "case_name": "uniform_brick"
+}

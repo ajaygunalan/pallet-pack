@@ -1,0 +1,404 @@
+{
+ "case": {
+  "pallet": {
+   "length": 1200,
+   "width": 800,
+   "deck_height": 144,
+   "max_stack_height": 2000
+  },
+  "skus": [
+   {
+    "sku": "donut-1843",
+    "dims": [
+     600,
+     400,
+     220
+    ],
+    "count": 1,
+    "weight": 6.296
+   },
+   {
+    "sku": "lyeroll-7754",
+    "dims": [
+     590,
+     390,
+     270
+    ],
+    "count": 2,
+    "weight": 6.78
+   },
+   {
+    "sku": "paperbag-2400",
+    "dims": [
+     370,
+     325,
+     195
+    ],
+    "count": 1,
+    "weight": 10.494
+   },
+   {
+    "sku": "croiss-1323",
+    "dims": [
+     585,
+     390,
+     220
+    ],
+    "count": 3,
+    "weight": 5.936
+   },
+   {
+    "sku": "roll-0459",
+    "dims": [
+     590,
+     390,
+     290
+    ],
+    "count": 1,
+    "weight": 7.63
+   },
+   {
+    "sku": "fruit-5433",
+    "dims": [
+     380,
+     300,
+     170
+    ],
+    "count": 1,
+    "weight": 5.72
+   },
+   {
+    "sku": "donut-1846",
+    "dims": [
+     580,
+     380,
+     160
+    ],
+    "count": 1,
+    "weight": 7.42
+   },
+   {
+    "sku": "duck-2653",
+    "dims": [
+     400,
+     300,
+     210
+    ],
+    "count": 1,
+    "weight": 7.632
+   },
+   {
+    "sku": "focacc-4520",
+    "dims": [
+     390,
+     390,
+     160
+    ],
+    "count": 1,
+    "weight": 4.85
+   },
+   {
+    "sku": "bread-9731",
+    "dims": [
+     600,
+     400,
+     290
+    ],
+    "count": 3,
+    "weight": 7.21
+   },
+   {
+    "sku": "prezel-4259",
+    "dims": [
+     590,
+     390,
+     220
+    ],
+    "count": 1,
+    "weight": 7.65
+   },
+   {
+    "sku": "roll-6670",
+    "dims": [
+     600,
+     400,
+     260
+    ],
+    "count": 2,
+    "weight": 6.996
+   },
+   {
+    "sku": "chicken-5511",
+    "dims": [
+     580,
+     390,
+     120
+    ],
+    "count": 1,
+    "weight": 6.38
+   },
+   {
+    "sku": "crumble-1825",
+    "dims": [
+     400,
+     295,
+     260
+    ],
+    "count": 1,
+    "weight": 4.664
+   },
+   {
+    "sku": "baguet-1398",
+    "dims": [
+     595,
+     400,
+     295
+    ],
+    "count": 1,
+    "weight": 6.11
+   },
+   {
+    "sku": "baguet-1162",
+    "dims": [
+     590,
+     390,
+     275
+    ],
+    "count": 1,
+    "weight": 7.21
+   },
+   {
+    "sku": "cake-0336",
+    "dims": [
+     395,
+     380,
+     205
+    ],
+    "count": 1,
+    "weight": 7.64
+   },
+   {
+    "sku": "pastry-2102",
+    "dims": [
+     405,
+     290,
+     180
+    ],
+    "count": 1,
+    "weight": 4.295
+   },
+   {
+    "sku": "donut-8722",
+    "dims": [
+     370,
+     325,
+     195
+    ],
+    "count": 1,
+    "weight": 10.494
+   },
+   {
+    "sku": "baguet-3678",
+    "dims": [
+     595,
+     395,
+     290
+    ],
+    "count": 1,
+    "weight": 11.7
+   }
+  ]
+ },
+ "placements": [
+  {
+   "sequence": 1,
+   "id": "donut-1843-1",
+   "sku": "donut-1843",
+   "x": 0,
+   "y": 0,
+   "z": 0,
+   "rotated": false,
+   "sits_on": [
+    "deck"
+   ]
+  },
+  {
+   "sequence": 2,
+   "id": "fruit-5433-1",
+   "sku": "fruit-5433",
+   "x": 0,
+   "y": 300,
+   "z": 220,
+   "rotated": true,
+   "sits_on": [
+    "donut-1843-1"
+   ]
+  },
+  {
+   "sequence": 3,
+   "id": "baguet-3678-1",
+   "sku": "baguet-3678",
+   "x": 400,
+   "y": 0,
+   "z": 0,
+   "rotated": false,
+   "sits_on": [
+    "deck"
+   ]
+  },
+  {
+   "sequence": 4,
+   "id": "paperbag-2400-1",
+   "sku": "paperbag-2400",
+   "x": 795,
+   "y": 0,
+   "z": 0,
+   "rotated": false,
+   "sits_on": [
+    "deck"
+   ]
+  },
+  {
+   "sequence": 5,
+   "id": "donut-8722-1",
+   "sku": "donut-8722",
+   "x": 795,
+   "y": 370,
+   "z": 0,
+   "rotated": false,
+   "sits_on": [
+    "deck"
+   ]
+  },
+  {
+   "sequence": 6,
+   "id": "prezel-4259-1",
+   "sku": "prezel-4259",
+   "x": 795,
+   "y": 0,
+   "z": 195,
+   "rotated": false,
+   "sits_on": [
+    "donut-8722-1",
+    "paperbag-2400-1"
+   ]
+  },
+  {
+   "sequence": 7,
+   "id": "cake-0336-1",
+   "sku": "cake-0336",
+   "x": 380,
+   "y": 0,
+   "z": 290,
+   "rotated": false,
+   "sits_on": [
+    "baguet-3678-1"
+   ]
+  },
+  {
+   "sequence": 8,
+   "id": "duck-2653-1",
+   "sku": "duck-2653",
+   "x": 0,
+   "y": 190,
+   "z": 390,
+   "rotated": false,
+   "sits_on": [
+    "fruit-5433-1"
+   ]
+  },
+  {
+   "sequence": 9,
+   "id": "roll-0459-1",
+   "sku": "roll-0459",
+   "x": 760,
+   "y": 0,
+   "z": 415,
+   "rotated": false,
+   "sits_on": [
+    "prezel-4259-1"
+   ]
+  },
+  {
+   "sequence": 10,
+   "id": "donut-1846-1",
+   "sku": "donut-1846",
+   "x": 740,
+   "y": 0,
+   "z": 705,
+   "rotated": false,
+   "sits_on": [
+    "roll-0459-1"
+   ]
+  },
+  {
+   "sequence": 11,
+   "id": "focacc-4520-1",
+   "sku": "focacc-4520",
+   "x": 300,
+   "y": 0,
+   "z": 495,
+   "rotated": false,
+   "sits_on": [
+    "cake-0336-1"
+   ]
+  },
+  {
+   "sequence": 12,
+   "id": "crumble-1825-1",
+   "sku": "crumble-1825",
+   "x": 0,
+   "y": 180,
+   "z": 600,
+   "rotated": false,
+   "sits_on": [
+    "duck-2653-1"
+   ]
+  },
+  {
+   "sequence": 13,
+   "id": "pastry-2102-1",
+   "sku": "pastry-2102",
+   "x": 295,
+   "y": 0,
+   "z": 655,
+   "rotated": true,
+   "sits_on": [
+    "focacc-4520-1"
+   ]
+  }
+ ],
+ "leftovers": [
+  "lyeroll-7754-1",
+  "lyeroll-7754-2",
+  "croiss-1323-1",
+  "croiss-1323-2",
+  "croiss-1323-3",
+  "bread-9731-1",
+  "bread-9731-2",
+  "bread-9731-3",
+  "roll-6670-1",
+  "roll-6670-2",
+  "chicken-5511-1",
+  "baguet-1398-1",
+  "baguet-1162-1"
+ ],
+ "verdict": {
+  "static_support": "PASS",
+  "stackable": true,
+  "top_coverage_pct": 35.2,
+  "top_spread_pct": 60.7,
+  "footprint_used_pct": 78.5,
+  "stack_height_mm": 865,
+  "pattern": "tiled",
+  "placed": 13,
+  "total": 26,
+  "beam_widths_run": [
+   1
+  ],
+  "pattern_requested": "auto",
+  "time_budget_s": 60.0,
+  "solve_seconds": 60.0
+ },
+ "case_name": "grocery_order"
+}

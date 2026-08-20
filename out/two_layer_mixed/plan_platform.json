@@ -1,0 +1,178 @@
+{
+ "case": {
+  "pallet": {
+   "length": 1200,
+   "width": 800,
+   "deck_height": 145,
+   "max_stack_height": null
+  },
+  "skus": [
+   {
+    "sku": "P",
+    "dims": [
+     600,
+     400,
+     200
+    ],
+    "count": 4,
+    "weight": null
+   },
+   {
+    "sku": "Q",
+    "dims": [
+     400,
+     400,
+     150
+    ],
+    "count": 6,
+    "weight": null
+   }
+  ]
+ },
+ "placements": [
+  {
+   "sequence": 1,
+   "id": "P-1",
+   "sku": "P",
+   "x": 0,
+   "y": 0,
+   "z": 0,
+   "rotated": true,
+   "sits_on": [
+    "deck"
+   ]
+  },
+  {
+   "sequence": 2,
+   "id": "Q-1",
+   "sku": "Q",
+   "x": 0,
+   "y": 0,
+   "z": 200,
+   "rotated": false,
+   "sits_on": [
+    "P-1"
+   ]
+  },
+  {
+   "sequence": 3,
+   "id": "P-2",
+   "sku": "P",
+   "x": 600,
+   "y": 0,
+   "z": 0,
+   "rotated": true,
+   "sits_on": [
+    "deck"
+   ]
+  },
+  {
+   "sequence": 4,
+   "id": "Q-2",
+   "sku": "Q",
+   "x": 800,
+   "y": 0,
+   "z": 200,
+   "rotated": false,
+   "sits_on": [
+    "P-2"
+   ]
+  },
+  {
+   "sequence": 5,
+   "id": "Q-3",
+   "sku": "Q",
+   "x": 400,
+   "y": 0,
+   "z": 200,
+   "rotated": false,
+   "sits_on": [
+    "P-1",
+    "P-2"
+   ]
+  },
+  {
+   "sequence": 6,
+   "id": "P-3",
+   "sku": "P",
+   "x": 0,
+   "y": 400,
+   "z": 0,
+   "rotated": true,
+   "sits_on": [
+    "deck"
+   ]
+  },
+  {
+   "sequence": 7,
+   "id": "P-4",
+   "sku": "P",
+   "x": 600,
+   "y": 400,
+   "z": 0,
+   "rotated": true,
+   "sits_on": [
+    "deck"
+   ]
+  },
+  {
+   "sequence": 8,
+   "id": "Q-4",
+   "sku": "Q",
+   "x": 0,
+   "y": 400,
+   "z": 200,
+   "rotated": false,
+   "sits_on": [
+    "P-3"
+   ]
+  },
+  {
+   "sequence": 9,
+   "id": "Q-5",
+   "sku": "Q",
+   "x": 400,
+   "y": 400,
+   "z": 200,
+   "rotated": false,
+   "sits_on": [
+    "P-3",
+    "P-4"
+   ]
+  },
+  {
+   "sequence": 10,
+   "id": "Q-6",
+   "sku": "Q",
+   "x": 800,
+   "y": 400,
+   "z": 200,
+   "rotated": false,
+   "sits_on": [
+    "P-4"
+   ]
+  }
+ ],
+ "leftovers": [],
+ "verdict": {
+  "static_support": "PASS",
+  "stackable": true,
+  "top_coverage_pct": 100.0,
+  "top_spread_pct": 100.0,
+  "footprint_used_pct": 100.0,
+  "stack_height_mm": 350,
+  "pattern": "platform",
+  "placed": 10,
+  "total": 10,
+  "beam_widths_run": [
+   1,
+   2,
+   4,
+   8
+  ],
+  "pattern_requested": "platform",
+  "time_budget_s": 60.0,
+  "solve_seconds": 12.0
+ },
+ "case_name": "two_layer_mixed"
+}

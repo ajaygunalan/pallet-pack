@@ -1,0 +1,12 @@
+[project]
+name = "pallet-pack"
+version = "0.1.0"
+description = "Single-pallet 3D box packing: heightmap + stability gates + BSG beam search (see SPEC.md)"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.26",
+    "plotly>=5.20",
+]
+
+[dependency-groups]
+dev = ["pytest>=8"]
