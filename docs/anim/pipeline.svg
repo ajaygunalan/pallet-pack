@@ -22,19 +22,21 @@ text{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helveti
 .k6{animation:k6 9s infinite both}
 @keyframes k7{0.000%{opacity:0}55.556%{opacity:0}59.444%{opacity:1}100.000%{opacity:1}}
 .k7{animation:k7 9s infinite both}
-@keyframes k8{0.000%{opacity:0}66.667%{opacity:0}68.889%{opacity:1}74.444%{opacity:1}78.889%{opacity:0}100.000%{opacity:0}}
+@keyframes k8{0.000%{opacity:0}58.889%{opacity:0}62.778%{opacity:1}100.000%{opacity:1}}
 .k8{animation:k8 9s infinite both}
-@keyframes k9{0.000%{opacity:0}76.667%{opacity:0}78.889%{opacity:1}84.444%{opacity:1}88.889%{opacity:0}100.000%{opacity:0}}
+@keyframes k9{0.000%{opacity:0}66.667%{opacity:0}68.889%{opacity:1}74.444%{opacity:1}78.889%{opacity:0}100.000%{opacity:0}}
 .k9{animation:k9 9s infinite both}
-@keyframes k10{0.000%{opacity:0}16.667%{opacity:0}20.556%{opacity:1}31.111%{opacity:1}35.000%{opacity:0}100.000%{opacity:0}}
+@keyframes k10{0.000%{opacity:0}76.667%{opacity:0}78.889%{opacity:1}84.444%{opacity:1}88.889%{opacity:0}100.000%{opacity:0}}
 .k10{animation:k10 9s infinite both}
-@keyframes k11{0.000%{opacity:0}45.556%{opacity:0}49.444%{opacity:1}54.444%{opacity:1}58.333%{opacity:0}100.000%{opacity:0}}
+@keyframes k11{0.000%{opacity:0}16.667%{opacity:0}20.556%{opacity:1}31.111%{opacity:1}35.000%{opacity:0}100.000%{opacity:0}}
 .k11{animation:k11 9s infinite both}
-@keyframes k12{0.000%{opacity:0}3.889%{opacity:1}93.889%{opacity:1}98.889%{opacity:0}100.000%{opacity:0}}
+@keyframes k12{0.000%{opacity:0}45.556%{opacity:0}49.444%{opacity:1}54.444%{opacity:1}58.333%{opacity:0}100.000%{opacity:0}}
 .k12{animation:k12 9s infinite both}
+@keyframes k13{0.000%{opacity:0}3.889%{opacity:1}93.889%{opacity:1}98.889%{opacity:0}100.000%{opacity:0}}
+.k13{animation:k13 9s infinite both}
 </style>
 <rect x="1" y="1" width="798" height="218" rx="14" fill="#fbfaf7" stroke="#e2ddd3"/>
-<g fill="#1d1d1f" class="k12">
+<g fill="#1d1d1f" class="k13">
 <defs>
 <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d1d1f"/></marker>
 <marker id="ahg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6b6b6b"/></marker>
@@ -56,13 +58,14 @@ text{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helveti
 <text x="545" y="69" font-size="13" text-anchor="middle" class="m" >verify.py</text>
 <rect x="640" y="44" width="140" height="40" rx="7" fill="#fbfaf7" stroke="#1d1d1f" stroke-width="1.4" stroke-dasharray="4 3"/>
 <rect x="640" y="44" width="140" height="40" rx="7" fill="none" stroke="#e8552b" stroke-width="3" class="k6"/>
-<text x="710" y="69" font-size="13" text-anchor="middle" class="m" >PASS / FAIL</text>
-<g class="k7"><rect x="643" y="47" width="134" height="34" rx="6" fill="#fbfaf7"/><text x="710" y="69" font-size="14" text-anchor="middle" class="m" font-weight="700" >PASS</text></g>
+<text x="710" y="69" font-size="13" text-anchor="middle" class="m" >rules 1–4</text>
+<g class="k7"><rect x="643" y="47" width="134" height="34" rx="6" fill="#fbfaf7"/><text x="710" y="69" font-size="13" text-anchor="middle" class="m" font-weight="700" >checks: PASS</text></g>
+<g class="k8"><text x="710" y="100" font-size="11" text-anchor="middle" class="acc" >stackable: yes / no</text></g>
 <rect x="490" y="124" width="110" height="40" rx="7" fill="#ffffff" stroke="#1d1d1f" stroke-width="1.4" />
-<rect x="490" y="124" width="110" height="40" rx="7" fill="none" stroke="#e8552b" stroke-width="3" class="k8"/>
+<rect x="490" y="124" width="110" height="40" rx="7" fill="none" stroke="#e8552b" stroke-width="3" class="k9"/>
 <text x="545" y="149" font-size="13" text-anchor="middle" class="m" >viewer.py</text>
 <rect x="640" y="124" width="140" height="40" rx="7" fill="#fbfaf7" stroke="#1d1d1f" stroke-width="1.4" stroke-dasharray="4 3"/>
-<rect x="640" y="124" width="140" height="40" rx="7" fill="none" stroke="#e8552b" stroke-width="3" class="k9"/>
+<rect x="640" y="124" width="140" height="40" rx="7" fill="none" stroke="#e8552b" stroke-width="3" class="k10"/>
 <text x="710" y="149" font-size="13" text-anchor="middle" class="m" >plan_auto.html</text>
 <line x1="130" y1="64" x2="168" y2="64" stroke="#1d1d1f" stroke-width="1.4" marker-end="url(#ah)"/>
 <line x1="280" y1="64" x2="318" y2="64" stroke="#1d1d1f" stroke-width="1.4" marker-end="url(#ah)"/>
@@ -70,8 +73,10 @@ text{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helveti
 <line x1="600" y1="64" x2="638" y2="64" stroke="#1d1d1f" stroke-width="1.4" marker-end="url(#ah)"/>
 <path d="M385,84 V144 H488" fill="none" stroke="#1d1d1f" stroke-width="1.4" marker-end="url(#ah)"/>
 <line x1="600" y1="144" x2="638" y2="144" stroke="#1d1d1f" stroke-width="1.4" marker-end="url(#ah)"/>
-<g class="k10"><text x="225" y="34" font-size="11" text-anchor="middle" class="acc" >searching…</text></g>
-<g class="k11"><text x="545" y="34" font-size="11" text-anchor="middle" class="acc" >checks 5 rules</text></g>
+<path d="M75,84 V98 H530 V86" fill="none" stroke="#6b6b6b" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#ahg)"/>
+<text x="300" y="95" font-size="10.5" text-anchor="middle" class="g" >the case also goes to verify.py</text>
+<g class="k11"><text x="225" y="34" font-size="11" text-anchor="middle" class="acc" >searching…</text></g>
+<g class="k12"><text x="545" y="34" font-size="11" text-anchor="middle" class="acc" >rules 1–4 fatal, 5 reported</text></g>
 <text x="400" y="196" font-size="12" text-anchor="middle" class="g" >main.py runs all three in one command; verify.py runs as a separate process and never imports solver.py</text>
 </g>
 </svg>

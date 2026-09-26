@@ -120,8 +120,8 @@ side view:                        what the grid stores, cell by cell:
 
 </details>
 
-The grid IS the world model: every check below is plain arithmetic on
-these numbers.
+The heightmap decides landing heights and contact; the placement records
+supply the geometry and masses that BALANCE needs.
 
 ### Check 1 — SUPPORT: is the base held up?
 
@@ -208,14 +208,16 @@ half-finished pallets alive and judges each by how it *ends*: a fast
 greedy rollout finishes every child, and the best snapshot along that
 future is its score.
 
-Why greedy is not enough, on the `acceptance_1` order: every placement is
-legal, yet the finished top is bunched at one end and not stackable.
+These examples use the `acceptance_1` order with tiled-only rollouts, and
+the beam illustration keeps two partial pallets. Why greedy is not enough:
+every placement is legal, yet the finished top is bunched at one end and
+not stackable.
 
 ![Animated: greedy packs the acceptance_1 order; every placement passes the checks, but the top contact is bunched at one end, 30.7 % spread of 60 % required, not stackable](docs/anim/greedy.svg)
 
-A move is scored by where it ends: complete it with a greedy rollout and
-score the finished plan. The search keeps the partial pallet, not the
-rollout.
+A move is scored by where it leads: run a greedy rollout from it and take
+the best snapshot along that rollout as its score. The search keeps the
+partial pallet, not the rollout.
 
 ![Animated: two first moves, D in the corner and A in the corner, each completed by a greedy rollout; 30.7 % not stackable against 65.6 % stackable](docs/anim/rollout-score.svg)
 
@@ -237,12 +239,12 @@ the top few:
          child 1       child 2       child 3      ← real moves:
              ┆             ┆             ┆          one box added
              ┆             ┆             ┆   ROLLOUT plays each
-             ┆             ┆             ┆   child to the end — an
-             ┆             ┆             ┆   imagined, throw-away
+             ┆             ┆             ┆   child to the end — a 
+             ┆             ┆             ┆   simulated, throw-away
              ▼             ▼             ▼   future, used to grade
          ending 1      ending 2      ending 3
          stackable     NOT           stackable
-         92% full      stackable     97% full
+         92% full      stackable     97% full   (schematic)
              │             │             │
              └─────────── grade ─────────┘
                            │
@@ -251,15 +253,15 @@ the top few:
             the best ending ever seen IS the plan
 
  the dial:  w = 1 ──────── 2 ──────── 4 ──────── 8
-            plain greedy     restarts while the time budget
-                             lasts; best plan from any run wins
+            one kept         restarts while the time budget
+            pallet           lasts; best plan from any run wins
 ```
 
 </details>
 
-The dashed lines are the point: rollouts are *imagined* futures, thrown
-away after grading — only the single real move at the top of each branch
-is kept. Twins (two different routes to the identical stack) are deleted
+The dashed lines are the point: the simulated placements of a rollout never
+enter the beam, only the single real move at the top of each branch is
+kept (a rollout's best snapshot can still be saved as the final answer). Twins (two different routes to the identical stack) are deleted
 before grading so the beam stays diverse.
 
 The **objective** judging every ending never changes: stackable beats
@@ -268,8 +270,11 @@ Deterministic throughout — no randomness anywhere.
 
 ### Two stacking patterns
 
-The rollout can finish a pallet two different ways; both endings are
-scored and the objective picks (two specialist finishers beat one
+In automatic mode the rollout can finish a pallet two different ways;
+both endings are scored and the best is saved. On `acceptance_1` the
+pictured tiled (65.6 %) and platform (87.7 %) plans tie under the
+objective: both stackable, same volume, same top contact area; the
+platform plan is the one found first (two specialist finishers beat one
 compromise — see [4], [5]):
 
 ![Animated: the tiled ending on acceptance_1, 65.6 % spread, beside the platform rollout built box by box: the six tallest boxes around the edges, the rest below, 87.7 % spread, stackable](docs/anim/patterns.svg)
@@ -284,7 +289,7 @@ compromise — see [4], [5]):
   │ C C . . . . │              │ A    A    A │    the upper pallet; short
   └─────────────┘              └─────────────┘    boxes tucked below
    tight from a corner,         (top views, schematic)
-   maximum volume
+   low, tight placements
 ```
 
 </details>
@@ -306,7 +311,7 @@ case.json ──▶ solver.py ──▶ plan_auto.json ──▶ verify.py ─�
 | file | what it does |
 |---|---|
 | `solver.py` | finds the plan — the whole algorithm above (see inside below) |
-| `verify.py` | checks a finished plan against five rules — geometry, support, balance, completeness, level top — with its own independent code |
+| `verify.py` | checks a finished plan against five rules with its own independent code: rules 1–4 (geometry, support, balance, completeness) decide PASS / FAIL; rule 5, level top, is reported separately as stackable yes / no |
 | `viewer.py` | turns a plan into the interactive 3D page |
 | `main.py` | one command that runs all three in order |
 | `test_solver.py` | the stability-check diagrams above as test fixtures, plus expected results for every case |
@@ -427,8 +432,8 @@ Each case exists to prove one thing; expected results are pinned in
 `test_solver.py`.
 
 - **`acceptance_1`** — the original task: 6×A, 2×B, 1×C, 1×D on a
-  1200×800 pallet. The four box heights never meet at one level, so
-  a single greedy tiled rollout ends unstackable (top spread 30.7 %) — the
+  1200×800 pallet. A single greedy tiled rollout bunches the
+  six tallest boxes at one end and ends unstackable (top spread 30.7 %) — the
   platform pattern spreads the six tall A-boxes and tucks B/C/D beneath
   (87.7 %). The full beam with tiled rollouts also ends stackable (65.6 %). 10/10 placed, stackable.
 - **`uniform_brick`** — one SKU that tiles the deck exactly. The sanity

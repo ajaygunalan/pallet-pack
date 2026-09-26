@@ -40,9 +40,9 @@ text{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helveti
 .k15{animation:k15 12s infinite both}
 @keyframes k16{0.000%{opacity:0}34.167%{opacity:0}37.083%{opacity:1}52.500%{opacity:1}55.417%{opacity:0}100.000%{opacity:0}}
 .k16{animation:k16 12s infinite both}
-@keyframes k17{0.000%{opacity:0}48.333%{opacity:0}51.250%{opacity:1}100.000%{opacity:1}}
+@keyframes k17{0.000%{opacity:0}48.333%{opacity:0}51.250%{opacity:1}78.333%{opacity:1}81.250%{opacity:0}100.000%{opacity:0}}
 .k17{animation:k17 12s infinite both}
-@keyframes k18{0.000%{opacity:0}57.500%{opacity:0}60.417%{opacity:1}100.000%{opacity:1}}
+@keyframes k18{0.000%{opacity:0}57.500%{opacity:0}60.417%{opacity:1}78.333%{opacity:1}81.250%{opacity:0}100.000%{opacity:0}}
 .k18{animation:k18 12s infinite both}
 @keyframes k19{0.000%{opacity:0}80.833%{opacity:0}83.750%{opacity:1}100.000%{opacity:1}}
 .k19{animation:k19 12s infinite both}
