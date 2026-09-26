@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -50 640 600" width="640" height="600" role="img" aria-label="How do we model the pallet?"><style>:root{--paper:#FFFFFF;--ink:#121417;--graphite:#5F646B;--line:#E4E6E9;--accent:#F04E23;--wash:#F5F5F3;}
+text{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:15px;fill:#5F646B}
+text.bl{font-family:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:17px;fill:#121417}
+text.wl{font-family:ui-sans-serif,system-ui,sans-serif;font-size:13px;fill:#FFFFFF}
+text.a{fill:#F04E23} text.x{font-family:ui-sans-serif,system-ui,sans-serif;font-size:34px;fill:#F04E23;font-weight:600}
+.bx{fill:#F5F5F3;stroke:#121417;stroke-width:1.5;stroke-linejoin:round}
+.bx2{fill:#FFFFFF;stroke:#121417;stroke-width:1.5;stroke-linejoin:round}
+.hv{fill:#121417;stroke:#121417;stroke-width:1.5}
+.nb{fill:#FFFFFF;stroke:#F04E23;stroke-width:2}
+.nw{fill:#F04E23;stroke:#121417;stroke-width:1.2}
+.dk{fill:#E4E6E9;stroke:#121417;stroke-width:1.5}
+.fl{stroke:#5F646B;stroke-width:1}
+.acc{stroke:#F04E23;stroke-width:4;stroke-linecap:round}
+.ring{fill:none;stroke:#F04E23;stroke-width:2}
+.dash{fill:none;stroke:#F04E23;stroke-width:1.6;stroke-dasharray:6 5}
+.edge{stroke:#5F646B;stroke-width:1.2}
+.roll{stroke:#5F646B;stroke-width:1.6;stroke-dasharray:2 5;stroke-linecap:round}
+.cell{fill:#FFFFFF;stroke:#5F646B;stroke-width:1}
+.fp{fill:none;stroke:#F04E23;stroke-width:2.5}
+.idk{fill:#E4E6E9;stroke:#5F646B;stroke-width:.8} .idk2{fill:color-mix(in srgb,#E4E6E9 80%,#000);stroke:#5F646B;stroke-width:.8} .idk3{fill:color-mix(in srgb,#E4E6E9 88%,#000);stroke:#5F646B;stroke-width:.8}
+.ia,.ib,.ic,.id{stroke:#121417;stroke-width:.9;stroke-linejoin:round}
+.ia{stroke:#F04E23;stroke-width:1.2} .ia.t{fill:#FFFFFF} .ia.r{fill:color-mix(in srgb,#FFFFFF 88%,#000)} .ia.fr{fill:color-mix(in srgb,#FFFFFF 80%,#000)}
+.id.t{fill:#F5F5F3} .id.r{fill:color-mix(in srgb,#F5F5F3 88%,#000)} .id.fr{fill:color-mix(in srgb,#F5F5F3 80%,#000)}
+.ic.t{fill:#FFFFFF} .ic.r{fill:color-mix(in srgb,#FFFFFF 88%,#000)} .ic.fr{fill:color-mix(in srgb,#FFFFFF 80%,#000)}
+.ib.t{fill:#E4E6E9} .ib.r{fill:color-mix(in srgb,#E4E6E9 88%,#000)} .ib.fr{fill:color-mix(in srgb,#E4E6E9 80%,#000)}
+text.il{font-size:13px;fill:#121417}
+.ihull{fill:#F04E23;fill-opacity:.16;stroke:#F04E23;stroke-width:1.6;stroke-dasharray:6 4}
+.isl{fill:#FFFFFF;fill-opacity:.55;stroke:#5F646B;stroke-width:1.1;stroke-dasharray:5 4}
+.img polygon{fill:#FFFFFF;fill-opacity:.35;stroke:#5F646B;stroke-width:.8;stroke-dasharray:3 2}
+.dg{fill:#E4E6E9} .dok{fill:#121417} .dno{fill:none;stroke:#F04E23;stroke-width:1.2} .dring{fill:none;stroke:#F04E23;stroke-width:2}
+.cap{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:17px;fill:#121417}
+.ttl{font-family:Georgia,"Times New Roman",serif;font-size:26px;fill:#121417}
+@keyframes k1{0.000%{opacity:0}18.447%{opacity:0}21.359%{opacity:1}94.175%{opacity:1}98.058%{opacity:1}}@keyframes k2{0.000%{transform:translate(0px,-130px)}18.447%{transform:translate(0px,-130px)}22.977%{transform:translate(0px,0px)}100.000%{transform:translate(0px,0px)}}@keyframes k3{0.000%{opacity:0}36.893%{opacity:0}39.806%{opacity:1}94.175%{opacity:1}98.058%{opacity:1}}@keyframes k4{0.000%{transform:translate(0px,-130px)}36.893%{transform:translate(0px,-130px)}41.424%{transform:translate(0px,0px)}100.000%{transform:translate(0px,0px)}}@keyframes k5{0.000%{opacity:1}18.447%{opacity:1}21.036%{opacity:0}94.175%{opacity:0}98.058%{opacity:0}}@keyframes k6{0.000%{opacity:0}22.977%{opacity:0}25.890%{opacity:1}94.175%{opacity:1}98.058%{opacity:1}}@keyframes k7{0.000%{opacity:1}18.447%{opacity:1}21.036%{opacity:0}94.175%{opacity:0}98.058%{opacity:0}}@keyframes k8{0.000%{opacity:0}22.977%{opacity:0}25.890%{opacity:1}94.175%{opacity:1}98.058%{opacity:1}}@keyframes k9{0.000%{opacity:1}18.447%{opacity:1}21.036%{opacity:0}94.175%{opacity:0}98.058%{opacity:0}}@keyframes k10{0.000%{opacity:0}22.977%{opacity:0}25.890%{opacity:1}94.175%{opacity:1}98.058%{opacity:1}}@keyframes k11{0.000%{opacity:1}36.893%{opacity:1}39.482%{opacity:0}94.175%{opacity:0}98.058%{opacity:0}}@keyframes k12{0.000%{opacity:0}41.424%{opacity:0}44.337%{opacity:1}94.175%{opacity:1}98.058%{opacity:1}}@keyframes k13{0.000%{opacity:1}36.893%{opacity:1}39.482%{opacity:0}94.175%{opacity:0}98.058%{opacity:0}}@keyframes k14{0.000%{opacity:0}41.424%{opacity:0}44.337%{opacity:1}94.175%{opacity:1}98.058%{opacity:1}}@keyframes k15{0.000%{opacity:0}24.272%{opacity:0}27.184%{opacity:1}94.175%{opacity:1}98.058%{opacity:1}}@keyframes k16{0.000%{opacity:0}42.718%{opacity:0}45.631%{opacity:1}94.175%{opacity:1}98.058%{opacity:1}}@keyframes k17{0.000%{opacity:0}56.634%{opacity:0}59.547%{opacity:1}94.175%{opacity:1}98.058%{opacity:1}}@keyframes k18{0.000%{opacity:0}55.340%{opacity:0}58.252%{opacity:1}94.175%{opacity:1}98.058%{opacity:1}}@keyframes k19{0.000%{transform:translate(0px,-40px)}55.340%{transform:translate(0px,-40px)}59.871%{transform:translate(0px,0px)}100.000%{transform:translate(0px,0px)}}@keyframes k20{0.000%{opacity:0}73.786%{opacity:0}76.699%{opacity:1}94.175%{opacity:1}98.058%{opacity:1}}@keyframes k21{0.000%{opacity:1}18.447%{opacity:1}21.036%{opacity:0}94.175%{opacity:0}98.058%{opacity:0}}@keyframes k22{0.000%{opacity:0}19.741%{opacity:0}22.654%{opacity:1}36.893%{opacity:1}39.482%{opacity:0}94.175%{opacity:0}98.058%{opacity:0}}@keyframes k23{0.000%{opacity:0}38.188%{opacity:0}41.100%{opacity:1}55.340%{opacity:1}57.929%{opacity:0}94.175%{opacity:0}98.058%{opacity:0}}@keyframes k24{0.000%{opacity:0}56.634%{opacity:0}59.547%{opacity:1}73.786%{opacity:1}76.375%{opacity:0}94.175%{opacity:0}98.058%{opacity:0}}@keyframes k25{0.000%{opacity:0}75.081%{opacity:0}77.994%{opacity:1}94.175%{opacity:1}98.058%{opacity:1}}@keyframes k26{0.000%{opacity:1}94.175%{opacity:1}98.058%{opacity:1}}@keyframes k27{0.000%{opacity:0}2.589%{opacity:1}95.469%{opacity:1}99.353%{opacity:0}}</style><rect x="-1" y="-51" width="642" height="602" fill="#FFFFFF"/><g style="animation:k27 15.45s linear infinite"><text class="ttl" x="20.0" y="-22.0" style="animation:k26 15.45s linear infinite">How do we model the pallet?</text>
+<defs><pattern id="pph4" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="var(--accent)" stroke-width="1.2"/></pattern></defs>
+<line class="fl" x1="30" y1="320" x2="560" y2="320"/><text x="566" y="325">deck</text>
+<g class="cm pp4d" style="animation:k1 15.45s linear infinite,k2 15.45s linear infinite"><rect class="bx" x="60" y="195.1" width="210" height="124.9"/><text class="bl" x="165" y="253.1" text-anchor="middle">D</text><text x="165" y="275.1" text-anchor="middle">220 mm</text></g>
+<g class="cm pp4c" style="animation:k3 15.45s linear infinite,k4 15.45s linear infinite"><rect class="bx2" x="270" y="211" width="220.2" height="109"/><text class="bl" x="380.1" y="261" text-anchor="middle">C</text><text x="380.1" y="283" text-anchor="middle">192 mm</text></g>
+<rect class="cell" x="62" y="345" width="66" height="36" rx="4"/>
+<text x="95" y="369" text-anchor="middle" style="animation:k5 15.45s linear infinite">0</text>
+<text class="bl" x="95" y="369" text-anchor="middle" style="animation:k6 15.45s linear infinite">220</text>
+<rect class="cell" x="132" y="345" width="66" height="36" rx="4"/>
+<text x="165" y="369" text-anchor="middle" style="animation:k7 15.45s linear infinite">0</text>
+<text class="bl" x="165" y="369" text-anchor="middle" style="animation:k8 15.45s linear infinite">220</text>
+<rect class="cell" x="202" y="345" width="66" height="36" rx="4"/>
+<text x="235" y="369" text-anchor="middle" style="animation:k9 15.45s linear infinite">0</text>
+<text class="bl" x="235" y="369" text-anchor="middle" style="animation:k10 15.45s linear infinite">220</text>
+<rect class="cell" x="272" y="345" width="106" height="36" rx="4"/>
+<text x="325" y="369" text-anchor="middle" style="animation:k11 15.45s linear infinite">0</text>
+<text class="bl" x="325" y="369" text-anchor="middle" style="animation:k12 15.45s linear infinite">192</text>
+<rect class="cell" x="382" y="345" width="106" height="36" rx="4"/>
+<text x="435" y="369" text-anchor="middle" style="animation:k13 15.45s linear infinite">0</text>
+<text class="bl" x="435" y="369" text-anchor="middle" style="animation:k14 15.45s linear infinite">192</text>
+<rect class="cell" x="492.2" y="345" width="66" height="36" rx="4"/>
+<text x="525.2" y="369" text-anchor="middle">0</text>
+<text x="165" y="402" text-anchor="middle" style="animation:k15 15.45s linear infinite">under D</text>
+<text x="380.1" y="402" text-anchor="middle" style="animation:k16 15.45s linear infinite">under C</text>
+<text x="525.2" y="402" text-anchor="middle">empty</text>
+<text x="60" y="428">the grid of stack heights (1 mm cells, drawn coarse)</text>
+<rect class="fp" x="211.5" y="345" width="116.9" height="36" rx="4" style="animation:k17 15.45s linear infinite"/>
+<g class="cm pp4n" style="animation:k18 15.45s linear infinite,k19 15.45s linear infinite"><rect class="nb" x="211.5" y="37.4" width="116.9" height="157.8"/><text class="bl" x="270" y="122.2" text-anchor="middle">new box</text></g>
+<g style="animation:k20 15.45s linear infinite"><rect x="270" y="195.1" width="58.5" height="15.9" fill="url(#pph4)"/><text class="a" x="336.5" y="189.1">28 mm of air</text></g>
+<g style="animation:k21 15.45s linear infinite"><text class="cap" x="20.0" y="474.0">The solver keeps the pallet top as a grid of stack heights. At the</text><text class="cap" x="20.0" y="498.0">start every cell reads 0.</text></g><g style="animation:k22 15.45s linear infinite"><text class="cap" x="20.0" y="474.0">D lands: its cells read 220.</text></g><g style="animation:k23 15.45s linear infinite"><text class="cap" x="20.0" y="474.0">C lands: its cells read 192.</text></g><g style="animation:k24 15.45s linear infinite"><text class="cap" x="20.0" y="474.0">A new box never chooses its height. It lands on the tallest cell</text><text class="cap" x="20.0" y="498.0">under its base:max(220, 192) = 220</text></g><g style="animation:k25 15.45s linear infinite"><text class="cap" x="20.0" y="474.0">Under the half over C: 28 mm of air. Nothing floats, nothing</text><text class="cap" x="20.0" y="498.0">overlaps, by construction. May it stay there?</text></g></g></svg>

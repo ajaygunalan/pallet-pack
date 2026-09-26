@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 500" width="760" height="500" role="img" aria-labelledby="t d">
+<title id="t">Check 2 BALANCE</title>
+<desc id="d">Four identical 100 mm boxes stacked as stairs, each shifted 30 mm: every joint has 70 % contact. With three boxes the combined centre of mass of boxes 2 and 3 (x = 95 mm) stays over box 1 (30 to 100 mm). The fourth box moves the combined centre of boxes 2, 3 and 4 to x = 110 mm, past box 1's edge: rejected.</desc>
+<style>
+text{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
+.g{fill:#6b6b6b}
+.acc{fill:#e8552b}
+@keyframes k0{0.000%{opacity:0;transform:translate(0px,-60px)}5.000%{opacity:0;transform:translate(0px,-60px)}6.000%{opacity:1;transform:translate(0px,-60px)}10.583%{opacity:1;transform:translate(0px,0px)}100.000%{opacity:1;transform:translate(0px,0px)}}
+.k0{animation:k0 12s infinite both}
+@keyframes k1{0.000%{stroke:#1d1d1f}60.833%{stroke:#1d1d1f}63.333%{stroke:#e8552b}80.833%{stroke:#e8552b}83.333%{stroke:#1d1d1f}100.000%{stroke:#1d1d1f}}
+.k1{animation:k1 12s infinite both}
+@keyframes k2{0.000%{opacity:0;transform:translate(0px,-60px)}11.667%{opacity:0;transform:translate(0px,-60px)}12.667%{opacity:1;transform:translate(0px,-60px)}17.250%{opacity:1;transform:translate(0px,0px)}100.000%{opacity:1;transform:translate(0px,0px)}}
+.k2{animation:k2 12s infinite both}
+@keyframes k3{0.000%{stroke:#1d1d1f}60.833%{stroke:#1d1d1f}63.333%{stroke:#e8552b}80.833%{stroke:#e8552b}83.333%{stroke:#1d1d1f}100.000%{stroke:#1d1d1f}}
+.k3{animation:k3 12s infinite both}
+@keyframes k4{0.000%{opacity:0;transform:translate(0px,-60px)}18.333%{opacity:0;transform:translate(0px,-60px)}19.333%{opacity:1;transform:translate(0px,-60px)}23.917%{opacity:1;transform:translate(0px,0px)}100.000%{opacity:1;transform:translate(0px,0px)}}
+.k4{animation:k4 12s infinite both}
+@keyframes k5{0.000%{stroke:#1d1d1f}60.833%{stroke:#1d1d1f}63.333%{stroke:#e8552b}80.833%{stroke:#e8552b}83.333%{stroke:#1d1d1f}100.000%{stroke:#1d1d1f}}
+.k5{animation:k5 12s infinite both}
+@keyframes k6{0.000%{opacity:0;transform:translate(0px,-60px)}46.667%{opacity:0;transform:translate(0px,-60px)}47.667%{opacity:1;transform:translate(0px,-60px)}52.250%{opacity:1;transform:translate(0px,0px)}80.000%{opacity:1;transform:translate(0px,0px)}82.917%{opacity:0;transform:translate(0px,0px)}100.000%{opacity:0;transform:translate(0px,0px)}}
+.k6{animation:k6 12s infinite both}
+@keyframes k7{0.000%{opacity:0}16.667%{opacity:0}19.583%{opacity:1}28.333%{opacity:1}31.250%{opacity:0}100.000%{opacity:0}}
+.k7{animation:k7 12s infinite both}
+@keyframes k8{0.000%{opacity:0}23.333%{opacity:0}26.250%{opacity:1}35.000%{opacity:1}37.917%{opacity:0}100.000%{opacity:0}}
+.k8{animation:k8 12s infinite both}
+@keyframes k9{0.000%{opacity:0}51.667%{opacity:0}54.583%{opacity:1}63.333%{opacity:1}66.250%{opacity:0}100.000%{opacity:0}}
+.k9{animation:k9 12s infinite both}
+@keyframes k10{0.000%{transform:rotate(0deg)}69.167%{transform:rotate(0deg)}73.333%{transform:rotate(8deg)}78.333%{transform:rotate(8deg)}81.667%{transform:rotate(0deg)}100.000%{transform:rotate(0deg)}}
+.k10{animation:k10 12s infinite both}
+@keyframes k11{0.000%{opacity:0}26.667%{opacity:0}29.583%{opacity:1}100.000%{opacity:1}}
+.k11{animation:k11 12s infinite both}
+@keyframes k12{0.000%{opacity:0}32.500%{opacity:0}35.417%{opacity:1}52.500%{opacity:1}55.417%{opacity:0}100.000%{opacity:0}}
+.k12{animation:k12 12s infinite both}
+@keyframes k13{0.000%{opacity:0}57.500%{opacity:0}60.417%{opacity:1}78.333%{opacity:1}81.250%{opacity:0}100.000%{opacity:0}}
+.k13{animation:k13 12s infinite both}
+@keyframes k14{0.000%{opacity:0;transform:translate(0px,0px)}32.500%{opacity:0;transform:translate(0px,0px)}35.000%{opacity:1;transform:translate(0px,0px)}52.500%{opacity:1;transform:translate(0px,0px)}57.500%{opacity:1;transform:translate(14.25px,-47.5px)}78.333%{opacity:1;transform:translate(14.25px,-47.5px)}81.667%{opacity:0;transform:translate(14.25px,-47.5px)}100.000%{opacity:0;transform:translate(14.25px,-47.5px)}}
+.k14{animation:k14 12s infinite both}
+@keyframes k15{0.000%{opacity:0}11.667%{opacity:0}14.583%{opacity:1}45.000%{opacity:1}47.917%{opacity:0}100.000%{opacity:0}}
+.k15{animation:k15 12s infinite both}
+@keyframes k16{0.000%{opacity:0}34.167%{opacity:0}37.083%{opacity:1}52.500%{opacity:1}55.417%{opacity:0}100.000%{opacity:0}}
+.k16{animation:k16 12s infinite both}
+@keyframes k17{0.000%{opacity:0}48.333%{opacity:0}51.250%{opacity:1}100.000%{opacity:1}}
+.k17{animation:k17 12s infinite both}
+@keyframes k18{0.000%{opacity:0}57.500%{opacity:0}60.417%{opacity:1}100.000%{opacity:1}}
+.k18{animation:k18 12s infinite both}
+@keyframes k19{0.000%{opacity:0}80.833%{opacity:0}83.750%{opacity:1}100.000%{opacity:1}}
+.k19{animation:k19 12s infinite both}
+@keyframes k20{0.000%{opacity:0}2.917%{opacity:1}95.417%{opacity:1}99.167%{opacity:0}100.000%{opacity:0}}
+.k20{animation:k20 12s infinite both}
+</style>
+<rect x="1" y="1" width="758" height="498" rx="14" fill="#fbfaf7" stroke="#e2ddd3"/>
+<g fill="#1d1d1f" class="k20">
+<line x1="120" y1="470" x2="377.5" y2="470" stroke="#1d1d1f" stroke-width="2" />
+<text x="349.5" y="488" font-size="12" text-anchor="start" class="g" >deck</text>
+<g class="k0"><rect x="140" y="375" width="95" height="95" rx="2" fill="#ffffff" stroke-width="1.6" stroke="#1d1d1f"/><text x="148" y="393" font-size="12" text-anchor="start" >box 1</text></g>
+<g class="k11"><rect x="168.5" y="372" width="66.5" height="6" fill="#1d1d1f"/><text x="130" y="361" font-size="11" text-anchor="end" class="g" >box 2 rests</text><text x="130" y="375" font-size="11" text-anchor="end" class="g" >on 30 – 100 mm</text><line x1="134" y1="371" x2="166.5" y2="374" stroke="#6b6b6b" stroke-width="0.8" /></g>
+<g class="k12"><line x1="230.25" y1="280" x2="230.25" y2="470" stroke="#1d1d1f" stroke-width="1.4" stroke-dasharray="4 3"/></g>
+<g class="k13"><line x1="244.5" y1="232.5" x2="244.5" y2="470" stroke="#e8552b" stroke-width="1.6" stroke-dasharray="4 3"/><circle cx="244.5" cy="373" r="4" fill="#e8552b"/></g>
+<g class="k10" style="transform-box:view-box;transform-origin:235px 375px"><g class="k2"><rect x="168.5" y="280" width="95" height="95" rx="2" fill="#ffffff" stroke-width="1.6" class="k1"/><text x="176.5" y="298" font-size="12" text-anchor="start" >box 2</text></g><g class="k4"><rect x="197" y="185" width="95" height="95" rx="2" fill="#ffffff" stroke-width="1.6" class="k3"/><text x="205" y="203" font-size="12" text-anchor="start" >box 3</text></g><g class="k6"><rect x="225.5" y="90" width="95" height="95" rx="2" fill="#ffffff" stroke-width="1.6" class="k5"/><text x="233.5" y="108" font-size="12" text-anchor="start" >box 4</text></g><g class="k7"><text x="271.5" y="379" font-size="11" text-anchor="start" class="g" >70 % contact ✓</text></g><g class="k8"><text x="300" y="284" font-size="11" text-anchor="start" class="g" >70 % contact ✓</text></g><g class="k9"><text x="328.5" y="189" font-size="11" text-anchor="start" class="g" >70 % contact ✓</text></g><g class="k14"><circle cx="230.25" cy="280" r="11" fill="#e8552b" opacity="0.18"/><text x="230.25" y="287" font-size="20" text-anchor="middle" fill="#e8552b" font-weight="700">✱</text></g></g>
+<g ><text x="420" y="44" font-size="13" text-anchor="start" >For every box: the combined centre of</text><text x="420" y="63" font-size="13" text-anchor="start" >mass of it + everything above must</text><text x="420" y="82" font-size="13" text-anchor="start" >fall inside the support it gets below.</text></g>
+<g class="k15"><text x="420" y="120" font-size="13" text-anchor="start" class="g" >Three stairs, 30 mm shift each:</text><text x="420" y="139" font-size="13" text-anchor="start" class="g" >every joint passes SUPPORT.</text></g>
+<g class="k16"><text x="420" y="180" font-size="13" text-anchor="start" font-weight="600" >✱ = centre of mass of boxes 2 + 3</text><text x="420" y="200" font-size="13" text-anchor="start" font-weight="600" >x = 95 mm, inside 30 – 100 mm</text><text x="420" y="220" font-size="13" text-anchor="start" font-weight="600" >→ box 2 stands ✓</text></g>
+<g class="k17"><text x="420" y="120" font-size="13" text-anchor="start" class="g" >A fourth stair: its own joint</text><text x="420" y="139" font-size="13" text-anchor="start" class="g" >still passes SUPPORT (70 %).</text></g>
+<g class="k18"><text x="420" y="180" font-size="13" text-anchor="start" fill="#e8552b" font-weight="600" >✱ = centre of mass of boxes 2 + 3 + 4</text><text x="420" y="200" font-size="13" text-anchor="start" fill="#e8552b" font-weight="600" >x = 110 mm, past box 1's edge (100)</text><text x="420" y="220" font-size="13" text-anchor="start" fill="#e8552b" font-weight="600" >nothing underneath → 2, 3, 4 tip</text></g>
+<g class="k19"><text x="420" y="260" font-size="14" text-anchor="start" font-weight="600" >→ the 4th box is rejected;</text><text x="420" y="280" font-size="14" text-anchor="start" font-weight="600" >the three stairs stand</text></g>
+<g ><text x="420" y="330" font-size="12" text-anchor="start" class="g" >Each joint looks fine alone; the</text><text x="420" y="347" font-size="12" text-anchor="start" class="g" >failure appears only when the loads</text><text x="420" y="364" font-size="12" text-anchor="start" class="g" >combine. (Equal masses; test fixture</text><text x="420" y="381" font-size="12" text-anchor="start" class="g" >test_jenga_staircase_rejected.)</text></g>
+</g>
+</svg>

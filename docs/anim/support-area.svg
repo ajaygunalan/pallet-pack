@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -50 640 600" width="640" height="600" role="img" aria-label="When is a box held enough?"><style>:root{--paper:#FFFFFF;--ink:#121417;--graphite:#5F646B;--line:#E4E6E9;--accent:#F04E23;--wash:#F5F5F3;}
+text{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:15px;fill:#5F646B}
+text.bl{font-family:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:17px;fill:#121417}
+text.wl{font-family:ui-sans-serif,system-ui,sans-serif;font-size:13px;fill:#FFFFFF}
+text.a{fill:#F04E23} text.x{font-family:ui-sans-serif,system-ui,sans-serif;font-size:34px;fill:#F04E23;font-weight:600}
+.bx{fill:#F5F5F3;stroke:#121417;stroke-width:1.5;stroke-linejoin:round}
+.bx2{fill:#FFFFFF;stroke:#121417;stroke-width:1.5;stroke-linejoin:round}
+.hv{fill:#121417;stroke:#121417;stroke-width:1.5}
+.nb{fill:#FFFFFF;stroke:#F04E23;stroke-width:2}
+.nw{fill:#F04E23;stroke:#121417;stroke-width:1.2}
+.dk{fill:#E4E6E9;stroke:#121417;stroke-width:1.5}
+.fl{stroke:#5F646B;stroke-width:1}
+.acc{stroke:#F04E23;stroke-width:4;stroke-linecap:round}
+.ring{fill:none;stroke:#F04E23;stroke-width:2}
+.dash{fill:none;stroke:#F04E23;stroke-width:1.6;stroke-dasharray:6 5}
+.edge{stroke:#5F646B;stroke-width:1.2}
+.roll{stroke:#5F646B;stroke-width:1.6;stroke-dasharray:2 5;stroke-linecap:round}
+.cell{fill:#FFFFFF;stroke:#5F646B;stroke-width:1}
+.fp{fill:none;stroke:#F04E23;stroke-width:2.5}
+.idk{fill:#E4E6E9;stroke:#5F646B;stroke-width:.8} .idk2{fill:color-mix(in srgb,#E4E6E9 80%,#000);stroke:#5F646B;stroke-width:.8} .idk3{fill:color-mix(in srgb,#E4E6E9 88%,#000);stroke:#5F646B;stroke-width:.8}
+.ia,.ib,.ic,.id{stroke:#121417;stroke-width:.9;stroke-linejoin:round}
+.ia{stroke:#F04E23;stroke-width:1.2} .ia.t{fill:#FFFFFF} .ia.r{fill:color-mix(in srgb,#FFFFFF 88%,#000)} .ia.fr{fill:color-mix(in srgb,#FFFFFF 80%,#000)}
+.id.t{fill:#F5F5F3} .id.r{fill:color-mix(in srgb,#F5F5F3 88%,#000)} .id.fr{fill:color-mix(in srgb,#F5F5F3 80%,#000)}
+.ic.t{fill:#FFFFFF} .ic.r{fill:color-mix(in srgb,#FFFFFF 88%,#000)} .ic.fr{fill:color-mix(in srgb,#FFFFFF 80%,#000)}
+.ib.t{fill:#E4E6E9} .ib.r{fill:color-mix(in srgb,#E4E6E9 88%,#000)} .ib.fr{fill:color-mix(in srgb,#E4E6E9 80%,#000)}
+text.il{font-size:13px;fill:#121417}
+.ihull{fill:#F04E23;fill-opacity:.16;stroke:#F04E23;stroke-width:1.6;stroke-dasharray:6 4}
+.isl{fill:#FFFFFF;fill-opacity:.55;stroke:#5F646B;stroke-width:1.1;stroke-dasharray:5 4}
+.img polygon{fill:#FFFFFF;fill-opacity:.35;stroke:#5F646B;stroke-width:.8;stroke-dasharray:3 2}
+.dg{fill:#E4E6E9} .dok{fill:#121417} .dno{fill:none;stroke:#F04E23;stroke-width:1.2} .dring{fill:none;stroke:#F04E23;stroke-width:2}
+.cap{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:17px;fill:#121417}
+.ttl{font-family:Georgia,"Times New Roman",serif;font-size:26px;fill:#121417}
+@keyframes k1{0.000%{opacity:1}93.919%{opacity:1}97.973%{opacity:1}}@keyframes k2{0.000%{opacity:1}64.527%{opacity:1}67.230%{opacity:0}93.919%{opacity:0}97.973%{opacity:0}}@keyframes k3{0.000%{opacity:0}19.257%{opacity:0}22.297%{opacity:1}64.527%{opacity:1}67.230%{opacity:0}93.919%{opacity:0}97.973%{opacity:0}}@keyframes k4{0.000%{opacity:0}21.959%{opacity:0}25.000%{opacity:1}64.527%{opacity:1}67.230%{opacity:0}93.919%{opacity:0}97.973%{opacity:0}}@keyframes k5{0.000%{opacity:0}44.595%{opacity:0}47.635%{opacity:1}64.527%{opacity:1}67.230%{opacity:0}93.919%{opacity:0}97.973%{opacity:0}}@keyframes k6{0.000%{opacity:0}71.284%{opacity:0}74.324%{opacity:1}93.919%{opacity:1}97.973%{opacity:1}}@keyframes k7{0.000%{opacity:0}71.959%{opacity:0}75.000%{opacity:1}93.919%{opacity:1}97.973%{opacity:1}}@keyframes k8{0.000%{transform:translate(0px,0px) rotate(0deg)}39.189%{transform:translate(0px,0px) rotate(0deg)}42.230%{transform:translate(0px,0px) rotate(5deg)}64.527%{transform:translate(0px,0px) rotate(5deg)}66.892%{transform:translate(0px,0px) rotate(0deg)}66.892%{transform:translate(0px,0px) rotate(0deg)}72.297%{transform:translate(-94.8px,0px) rotate(0deg)}93.919%{transform:translate(-94.8px,0px) rotate(0deg)}99.932%{transform:translate(-94.8px,0px) rotate(0deg)}}@keyframes k9{0.000%{opacity:1}19.257%{opacity:1}21.959%{opacity:0}93.919%{opacity:0}97.973%{opacity:0}}@keyframes k10{0.000%{opacity:0}20.608%{opacity:0}23.649%{opacity:1}38.514%{opacity:1}41.216%{opacity:0}93.919%{opacity:0}97.973%{opacity:0}}@keyframes k11{0.000%{opacity:0}39.865%{opacity:0}42.905%{opacity:1}64.527%{opacity:1}67.230%{opacity:0}93.919%{opacity:0}97.973%{opacity:0}}@keyframes k12{0.000%{opacity:0}65.878%{opacity:0}68.919%{opacity:1}93.919%{opacity:1}97.973%{opacity:1}}@keyframes k13{0.000%{opacity:1}93.919%{opacity:1}97.973%{opacity:1}}@keyframes k14{0.000%{opacity:0}2.703%{opacity:1}95.270%{opacity:1}99.324%{opacity:0}}</style><rect x="-1" y="-51" width="642" height="602" fill="#FFFFFF"/><g style="animation:k14 14.80s linear infinite"><text class="ttl" x="20.0" y="-22.0" style="animation:k13 14.80s linear infinite">When is a box held enough?</text>
+<defs><pattern id="pph5" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="var(--accent)" stroke-width="1.2"/></pattern></defs>
+<line class="fl" x1="30" y1="320" x2="560" y2="320"/><text x="566" y="325">deck</text>
+<rect class="bx" x="60" y="195.1" width="210" height="124.9"/><text class="bl" x="165" y="253.1" text-anchor="middle">D</text><text x="165" y="275.1" text-anchor="middle">220 mm</text>
+<rect class="bx2" x="270" y="211" width="220.2" height="109"/><text class="bl" x="380.1" y="261" text-anchor="middle">C</text><text x="380.1" y="283" text-anchor="middle">192 mm</text>
+<rect class="cell" x="62" y="345" width="66" height="36" rx="4"/>
+<text x="95" y="369" text-anchor="middle">220</text>
+<rect class="cell" x="132" y="345" width="66" height="36" rx="4"/>
+<text x="165" y="369" text-anchor="middle">220</text>
+<rect class="cell" x="202" y="345" width="66" height="36" rx="4"/>
+<text x="235" y="369" text-anchor="middle">220</text>
+<rect class="cell" x="272" y="345" width="106" height="36" rx="4"/>
+<text x="325" y="369" text-anchor="middle">192</text>
+<rect class="cell" x="382" y="345" width="106" height="36" rx="4"/>
+<text x="435" y="369" text-anchor="middle">192</text>
+<rect class="cell" x="492.2" y="345" width="66" height="36" rx="4"/>
+<text x="525.2" y="369" text-anchor="middle">0</text>
+<text x="165" y="402" text-anchor="middle">under D</text>
+<text x="380.1" y="402" text-anchor="middle">under C</text>
+<text x="525.2" y="402" text-anchor="middle">empty</text>
+<text x="60" y="428">the grid of stack heights (1 mm cells, drawn coarse)</text>
+<g class="pp5n" style="transform-box:view-box;transform-origin:270px 195.1px;animation:k8 14.80s linear infinite"><g style="animation:k1 14.80s linear infinite"><rect class="nb" x="211.5" y="37.4" width="116.9" height="157.8"/><text class="bl" x="270" y="122.2" text-anchor="middle">new box</text></g></g>
+<g style="animation:k2 14.80s linear infinite"><rect x="270" y="195.1" width="58.5" height="15.9" fill="url(#pph5)"/><text class="a" x="336.5" y="189.1">28 mm of air</text></g>
+<line class="acc" x1="211.5" y1="195.1" x2="270" y2="195.1" style="animation:k3 14.80s linear infinite"/>
+<text class="a" x="171.5" y="28" style="animation:k4 14.80s linear infinite">50 % held</text>
+<text class="x" x="348.5" y="90" style="animation:k5 14.80s linear infinite">✗</text>
+<line class="acc" x1="116.8" y1="195.1" x2="233.7" y2="195.1" style="animation:k6 14.80s linear infinite"/>
+<text class="bl" x="116.8" y="28" style="animation:k7 14.80s linear infinite">100 % held ✓</text>
+<g style="animation:k9 14.80s linear infinite"><text class="cap" x="20.0" y="474.0">Check 1, SUPPORT: at least 70 % of the base must rest at the landing</text><text class="cap" x="20.0" y="498.0">height.</text></g><g style="animation:k10 14.80s linear infinite"><text class="cap" x="20.0" y="474.0">Only the half over D touches at 220: 50 % held.</text></g><g style="animation:k11 14.80s linear infinite"><text class="cap" x="20.0" y="474.0">50 % &lt; 70 %: the box would rock like a see-saw. Rejected.</text></g><g style="animation:k12 14.80s linear infinite"><text class="cap" x="20.0" y="474.0">The same box fully on D: 100 % ≥ 70 %. Accepted ✓</text></g></g></svg>

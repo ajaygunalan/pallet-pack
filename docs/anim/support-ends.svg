@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-labelledby="t d">
+<title id="t">Check 1 SUPPORT (b): held at both ends</title>
+<desc id="d">Left: a 100 mm box on two 40 mm supporters touching its left and right edges, 80 % held: a bridge, accepted. Right: the same box on a 90 mm supporter inset 5 mm from every edge, 81 % held but no edge touched: a diving board, rejected.</desc>
+<style>
+text{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
+.g{fill:#6b6b6b}
+.acc{fill:#e8552b}
+@keyframes k0{0.000%{opacity:0}4.167%{opacity:0}7.083%{opacity:1}100.000%{opacity:1}}
+.k0{animation:k0 12s infinite both}
+@keyframes k1{0.000%{stroke:#1d1d1f}30.833%{stroke:#1d1d1f}33.333%{stroke:#1d1d1f}100.000%{stroke:#1d1d1f}}
+.k1{animation:k1 12s infinite both}
+@keyframes k2{0.000%{opacity:0;transform:translate(0px,-50px)}8.333%{opacity:0;transform:translate(0px,-50px)}9.333%{opacity:1;transform:translate(0px,-50px)}13.917%{opacity:1;transform:translate(0px,0px)}100.000%{opacity:1;transform:translate(0px,0px)}}
+.k2{animation:k2 12s infinite both}
+@keyframes k3{0.000%{opacity:0}34.167%{opacity:0}37.083%{opacity:1}48.333%{opacity:1}51.250%{opacity:0}100.000%{opacity:0}}
+.k3{animation:k3 12s infinite both}
+@keyframes k4{0.000%{opacity:0}15.833%{opacity:0}18.750%{opacity:1}100.000%{opacity:1}}
+.k4{animation:k4 12s infinite both}
+@keyframes k5{0.000%{opacity:0}22.500%{opacity:0}25.417%{opacity:1}100.000%{opacity:1}}
+.k5{animation:k5 12s infinite both}
+@keyframes k6{0.000%{opacity:0}24.167%{opacity:0}27.083%{opacity:1}100.000%{opacity:1}}
+.k6{animation:k6 12s infinite both}
+@keyframes k7{0.000%{opacity:0}36.667%{opacity:0}39.583%{opacity:1}100.000%{opacity:1}}
+.k7{animation:k7 12s infinite both}
+@keyframes k8{0.000%{opacity:0}46.667%{opacity:0}49.583%{opacity:1}100.000%{opacity:1}}
+.k8{animation:k8 12s infinite both}
+@keyframes k9{0.000%{transform:rotate(0deg)}80.000%{transform:rotate(0deg)}83.750%{transform:rotate(7deg)}90.000%{transform:rotate(7deg)}93.750%{transform:rotate(0deg)}100.000%{transform:rotate(0deg)}}
+.k9{animation:k9 12s infinite both}
+@keyframes k10{0.000%{stroke:#1d1d1f}73.333%{stroke:#1d1d1f}75.833%{stroke:#e8552b}100.000%{stroke:#e8552b}}
+.k10{animation:k10 12s infinite both}
+@keyframes k11{0.000%{opacity:0;transform:translate(0px,-50px)}50.833%{opacity:0;transform:translate(0px,-50px)}51.833%{opacity:1;transform:translate(0px,-50px)}56.417%{opacity:1;transform:translate(0px,0px)}100.000%{opacity:1;transform:translate(0px,0px)}}
+.k11{animation:k11 12s infinite both}
+@keyframes k12{0.000%{opacity:0}76.667%{opacity:0}79.583%{opacity:1}90.833%{opacity:1}93.750%{opacity:0}100.000%{opacity:0}}
+.k12{animation:k12 12s infinite both}
+@keyframes k13{0.000%{opacity:0}58.333%{opacity:0}61.250%{opacity:1}100.000%{opacity:1}}
+.k13{animation:k13 12s infinite both}
+@keyframes k14{0.000%{opacity:0}65.000%{opacity:0}67.917%{opacity:1}100.000%{opacity:1}}
+.k14{animation:k14 12s infinite both}
+@keyframes k15{0.000%{opacity:0}66.667%{opacity:0}69.583%{opacity:1}100.000%{opacity:1}}
+.k15{animation:k15 12s infinite both}
+@keyframes k16{0.000%{opacity:0}79.167%{opacity:0}82.083%{opacity:1}100.000%{opacity:1}}
+.k16{animation:k16 12s infinite both}
+@keyframes k17{0.000%{opacity:0}2.917%{opacity:1}95.417%{opacity:1}99.167%{opacity:0}100.000%{opacity:0}}
+.k17{animation:k17 12s infinite both}
+</style>
+<rect x="1" y="1" width="798" height="448" rx="14" fill="#fbfaf7" stroke="#e2ddd3"/>
+<g fill="#1d1d1f" class="k17">
+<defs>
+<marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d1d1f"/></marker>
+<marker id="ahg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6b6b6b"/></marker>
+<marker id="aha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e8552b"/></marker>
+</defs>
+<text x="30" y="36" font-size="14" text-anchor="start" font-weight="600" >support under BOTH ends</text>
+<line x1="50" y1="176" x2="350" y2="176" stroke="#1d1d1f" stroke-width="2" />
+<g class="k0"><rect x="100" y="114" width="80" height="62" rx="2" fill="#ebe6dc" stroke="#1d1d1f" stroke-width="1.4" /><rect x="220" y="114" width="80" height="62" rx="2" fill="#ebe6dc" stroke="#1d1d1f" stroke-width="1.4" /></g>
+<g class="k2"><g ><rect x="100" y="80" width="200" height="34" rx="2" fill="#ffffff" stroke-width="1.8" class="k1"/><text x="200" y="102" font-size="12" text-anchor="middle" >new box</text></g></g>
+<g class="k3"><line x1="292" y1="44" x2="292" y2="76" stroke="#e8552b" stroke-width="2" marker-end="url(#aha)"/><text x="300" y="58" font-size="11" text-anchor="start" class="acc" >press an end</text></g>
+<g class="k4"><text x="30" y="240" font-size="12" text-anchor="start" class="g" >top view of the base</text><rect x="30" y="250" width="145" height="145" rx="0" fill="#ffffff" stroke="#cfc9be" stroke-width="1.2" /><rect x="30" y="250" width="58" height="145" rx="0" fill="#dcd5c8" stroke="none" stroke-width="1.4" /><rect x="117" y="250" width="58" height="145" rx="0" fill="#dcd5c8" stroke="none" stroke-width="1.4" /></g>
+<g class="k5"><line x1="30" y1="250" x2="30" y2="395" stroke="#1d1d1f" stroke-width="4" /><line x1="175" y1="250" x2="175" y2="395" stroke="#1d1d1f" stroke-width="4" /></g>
+<g class="k6"><text x="193" y="264" font-size="13" text-anchor="start" >80 % held</text><text x="193" y="282" font-size="13" text-anchor="start" >(two 40 mm supports)</text><text x="193" y="300" font-size="13" text-anchor="start" ></text><text x="193" y="318" font-size="13" text-anchor="start" >left AND right edges</text><text x="193" y="336" font-size="13" text-anchor="start" >rest on a box ✓</text></g>
+<g class="k7"><text x="193" y="368" font-size="13" text-anchor="start" font-weight="600" >press either end:</text><text x="193" y="386" font-size="13" text-anchor="start" font-weight="600" >it pushes back</text><text x="193" y="404" font-size="13" text-anchor="start" font-weight="600" >→ fine, a bridge</text></g>
+<line x1="400" y1="30" x2="400" y2="420" stroke="#e2ddd3" stroke-width="1" />
+<text x="425" y="36" font-size="14" text-anchor="start" font-weight="600" >support only in the MIDDLE</text>
+<line x1="445" y1="176" x2="745" y2="176" stroke="#1d1d1f" stroke-width="2" />
+<g class="k8"><rect x="505" y="114" width="180" height="62" rx="2" fill="#ebe6dc" stroke="#1d1d1f" stroke-width="1.4" /></g>
+<g class="k11"><g class="k9" style="transform-box:view-box;transform-origin:685px 114px"><rect x="495" y="80" width="200" height="34" rx="2" fill="#ffffff" stroke-width="1.8" class="k10"/><text x="595" y="102" font-size="12" text-anchor="middle" >new box</text></g></g>
+<g class="k12"><line x1="687" y1="44" x2="687" y2="76" stroke="#e8552b" stroke-width="2" marker-end="url(#aha)"/><text x="695" y="58" font-size="11" text-anchor="start" class="acc" >press an end</text></g>
+<g class="k13"><text x="425" y="240" font-size="12" text-anchor="start" class="g" >top view of the base</text><rect x="425" y="250" width="145" height="145" rx="0" fill="#ffffff" stroke="#cfc9be" stroke-width="1.2" /><rect x="432.25" y="257.25" width="130.5" height="130.5" rx="0" fill="#dcd5c8" stroke="none" stroke-width="1.4" /></g>
+<g class="k14"><line x1="425" y1="250" x2="425" y2="395" stroke="#e8552b" stroke-width="3" stroke-dasharray="5 4"/><line x1="570" y1="250" x2="570" y2="395" stroke="#e8552b" stroke-width="3" stroke-dasharray="5 4"/><line x1="425" y1="250" x2="570" y2="250" stroke="#e8552b" stroke-width="3" stroke-dasharray="5 4"/><line x1="425" y1="395" x2="570" y2="395" stroke="#e8552b" stroke-width="3" stroke-dasharray="5 4"/></g>
+<g class="k15"><text x="588" y="264" font-size="13" text-anchor="start" >81 % held ≥ 70 %</text><text x="588" y="282" font-size="13" text-anchor="start" >(90 mm, inset 5 mm)</text><text x="588" y="300" font-size="13" text-anchor="start" ></text><text x="588" y="318" font-size="13" text-anchor="start" >but NO edge of the</text><text x="588" y="336" font-size="13" text-anchor="start" >base touches support</text></g>
+<g class="k16"><text x="588" y="368" font-size="13" text-anchor="start" fill="#e8552b" font-weight="600" >one nudge dips an end</text><text x="588" y="386" font-size="13" text-anchor="start" fill="#e8552b" font-weight="600" >→ rejected</text><text x="588" y="404" font-size="13" text-anchor="start" fill="#e8552b" font-weight="600" >(a diving board)</text></g>
+<text x="400" y="438" font-size="12" text-anchor="middle" class="g" >rule: contact must touch two opposite edges of the base: left + right, or front + back</text>
+</g>
+</svg>

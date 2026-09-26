@@ -105,6 +105,10 @@ chosen: the box *lands* on the tallest cell under its footprint (its
 *landing height*), so floating or clipping boxes are impossible by
 construction.
 
+![Animated: boxes D and C land on the deck and the grid of stack heights updates; a new box lands on the tallest cell under it, 220, with 28 mm of air under the half over C](docs/anim/heightmap.svg)
+
+<details><summary>ASCII version</summary>
+
 ```
 side view:                        what the grid stores, cell by cell:
 
@@ -113,6 +117,8 @@ side view:                        what the grid stores, cell by cell:
 │           ││ C (192) │           under D     under C   empty
 ─────────────────────────  deck
 ```
+
+</details>
 
 The grid IS the world model: every check below is plain arithmetic on
 these numbers.
@@ -123,6 +129,10 @@ Two conditions, both required — together they are what the literature
 calls *partial base support with a support factor* [2]:
 
 **(a) enough area** — ≥ 70 % of the base must rest at the landing height:
+
+![Animated: SUPPORT (a), a box straddling D and C is only 50 % supported and rocks (rejected); moved fully onto D it is 100 % supported](docs/anim/support-area.svg)
+
+<details><summary>ASCII version</summary>
 
 ```
    ┌──────────────┐
@@ -135,9 +145,15 @@ calls *partial base support with a support factor* [2]:
  ───┴─────────┴──┴─────────┴── deck
 ```
 
+</details>
+
 **(b) held at both ends** — area alone is not enough: there must also
 be support under both ends of the base (its left and right edges, or its
 front and back edges). Same box, two ways to support it:
+
+![Animated: SUPPORT (b), a bridge touching both edges is accepted; a diving board with 81 % inset support touches no edge and is rejected](docs/anim/support-ends.svg)
+
+<details><summary>ASCII version</summary>
 
 ```
  support under BOTH ends — fine:      support only in the MIDDLE — fails:
@@ -149,10 +165,13 @@ front and back edges). Same box, two ways to support it:
 ──┴─────┴─────────┴─────┴── deck     ────────┴─────────┴──────── deck
 
  both ends of the new box             81 % of the base is held, but
- have a box underneath —              both ends hang over air; one
- press either end, it pushes          nudge dips an end
- back: a bridge                       → rejected (a diving board)
+ have a box underneath —              the support is inset on all
+ press either end, it pushes          four sides (from above it touches
+ back: a bridge                       no edge): one nudge dips an end
+                                      → rejected (a diving board)
 ```
+
+</details>
 
 ### Check 2 — BALANCE: does every box stay over its footing?
 
@@ -160,20 +179,27 @@ For **every** box: the combined center of mass of it plus everything
 stacked above must fall inside the support it receives from below — the
 literature's *static mechanical equilibrium* [3]. Each single joint
 below looks fine on its own; the failure only appears when the loads
-combine:
+combine. (BALANCE also rejects a box that no single supporter touches
+over at least 25 % of its base.)
+
+![Animated: BALANCE, a staircase of equal boxes; the fourth stair moves the combined centre of mass of boxes 2 to 4 past box 1's edge and is rejected](docs/anim/balance.svg)
+
+<details><summary>ASCII version</summary>
 
 ```
-             ┌─────────┐
-             │  box 3  │
-         ┌───┴─────┬───┘
-         │  box 2 ✱│               ✱ = combined center of mass of
-     ┌───┴─────┬───┘                   boxes 2 + 3 — it sits inside
-     │  box 1  │  ┆                    box 2, but dropped straight
-  ───┴─────────┴──┆────── deck         down (┆) it misses box 1:
-                                       past its right edge, nothing
-                                       underneath → boxes 2 + 3 tip
-                                       → rejected
+                     ┌─────────┐
+                     │  box 4  │
+                 ┌───┴─────┬───┘      equal boxes, each shifted 30 mm:
+                 │  box 3  │          every single joint is held 70 %
+             ┌───┴─────┬───┘
+             │  box 2 ✱│              ✱ = combined center of mass of
+         ┌───┴─────┬───┘                  boxes 2 + 3 + 4 — dropped
+         │  box 1  │  ┆                   straight down (┆) it misses
+  ───────┴─────────┴──┆────── deck        box 1 → the fourth box is
+                                          rejected (three stairs stand)
 ```
+
+</details>
 
 ### The search — Beam Search with Greedy rollouts (BSG)
 
@@ -182,10 +208,27 @@ half-finished pallets alive and judges each by how it *ends*: a fast
 greedy rollout finishes every child, and the best snapshot along that
 future is its score.
 
-One step of the beam, drawn out (w = 2 here):
+Why greedy is not enough, on the `acceptance_1` order: every placement is
+legal, yet the finished top is bunched at one end and not stackable.
+
+![Animated: greedy packs the acceptance_1 order; every placement passes the checks, but the top contact is bunched at one end, 30.7 % spread of 60 % required, not stackable](docs/anim/greedy.svg)
+
+A move is scored by where it ends: complete it with a greedy rollout and
+score the finished plan. The search keeps the partial pallet, not the
+rollout.
+
+![Animated: two first moves, D in the corner and A in the corner, each completed by a greedy rollout; 30.7 % not stackable against 65.6 % stackable](docs/anim/rollout-score.svg)
+
+Keeping every possibility explodes with every box, so each step keeps only
+the top few:
+
+![Animated: the possible first moves; keeping them all explodes; keep the top few by rollout score, extend, keep the top few again](docs/anim/keep-few.svg)
+
+<details><summary>ASCII version</summary>
 
 ```
-                one kept pallet (half built)
+           the kept pallets (half built) — children
+           of all w of them compete in one pool
                            │
             try every legal next placement —
             CANDIDATES propose, CHECKS discard
@@ -204,13 +247,15 @@ One step of the beam, drawn out (w = 2 here):
              └─────────── grade ─────────┘
                            │
             keep the w best children (here: 3, 1),
-            drop the rest, repeat with the next box;
+            drop the rest, grow them again;
             the best ending ever seen IS the plan
 
  the dial:  w = 1 ──────── 2 ──────── 4 ──────── 8
             plain greedy     restarts while the time budget
                              lasts; best plan from any run wins
 ```
+
+</details>
 
 The dashed lines are the point: rollouts are *imagined* futures, thrown
 away after grading — only the single real move at the top of each branch
@@ -227,6 +272,10 @@ The rollout can finish a pallet two different ways; both endings are
 scored and the objective picks (two specialist finishers beat one
 compromise — see [4], [5]):
 
+![Animated: the tiled ending on acceptance_1, 65.6 % spread, beside the platform rollout built box by box: the six tallest boxes around the edges, the rest below, 87.7 % spread, stackable](docs/anim/patterns.svg)
+
+<details><summary>ASCII version</summary>
+
 ```
    tiled                        platform
   ┌─────────────┐              ┌─────────────┐
@@ -238,13 +287,21 @@ compromise — see [4], [5]):
    maximum volume
 ```
 
+</details>
+
 ## Architecture
+
+![Animated: case.json flows through solver.py to plan_auto.json, then verify.py (PASS / FAIL) and viewer.py (plan_auto.html)](docs/anim/pipeline.svg)
+
+<details><summary>ASCII version</summary>
 
 ```
 case.json ──▶ solver.py ──▶ plan_auto.json ──▶ verify.py ──▶ PASS / FAIL
                                 └───────▶ viewer.py ──▶ plan_auto.html
                     (main.py runs all three in one command)
 ```
+
+</details>
 
 | file | what it does |
 |---|---|
@@ -272,6 +329,10 @@ The critical file. Eight numbered sections, top to bottom:
 
 How they connect:
 
+![Animated: the solver as a flowchart, INPUT, CANDIDATES, CHECKS, ROLLOUT, KEEP THE BEST FEW, next box, OUTPUT, each step illustrated beside it](docs/anim/solver-loop.svg)
+
+<details><summary>ASCII version</summary>
+
 ```
               case.json
                   │
@@ -284,8 +345,8 @@ How they connect:
    │  pallets (STATEs):               │
    │                                  │
    │    ┌─▶ CANDIDATES                │
-   │    │     spots the next box      │
-   │    │     could go                │
+   │    │     spots each box type     │
+   │    │     left could go           │
    │    │        │                    │
    │    │        ▼                    │
    │    │     CHECKS                  │
@@ -299,10 +360,12 @@ How they connect:
    │    │        │                    │
    │    │        ▼                    │
    │    └─── keep the w best,         │
-   │         take the next box        │
+   │         grow them again          │
    │                                  │
    └────────────────┬─────────────────┘
-                    │ boxes exhausted
+                    │ no legal move left, or time up
+                    │ (restarts at w = 1, 2, 4, 8;
+                    │  the best ending ever seen wins)
                     ▼
                  OUTPUT
                     │
@@ -310,6 +373,8 @@ How they connect:
               the plan file       (CONSTANTS feed the checks and
                                    the grading throughout)
 ```
+
+</details>
 
 ## How to run
 
@@ -363,8 +428,9 @@ Each case exists to prove one thing; expected results are pinned in
 
 - **`acceptance_1`** — the original task: 6×A, 2×B, 1×C, 1×D on a
   1200×800 pallet. The four box heights never meet at one level, so
-  tiling alone can't end stackable — the platform pattern spreads the six
-  tall A-boxes and tucks B/C/D beneath. 10/10 placed, stackable.
+  a single greedy tiled rollout ends unstackable (top spread 30.7 %) — the
+  platform pattern spreads the six tall A-boxes and tucks B/C/D beneath
+  (87.7 %). The full beam with tiled rollouts also ends stackable (65.6 %). 10/10 placed, stackable.
 - **`uniform_brick`** — one SKU that tiles the deck exactly. The sanity
   case: every box placed, flat top.
 - **`overflow_capped`** — 20 boxes, a 600 mm height cap that fits 12.
